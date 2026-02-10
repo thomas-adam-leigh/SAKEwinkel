@@ -5,5 +5,12 @@ export const Route = createFileRoute("/_auth/products/purchase-orders")({
 });
 
 function PurchaseOrdersPage() {
-  return <h1 className="text-[18px] text-text-primary leading-[24px]" style={{ fontWeight: 600 }}>Purchase orders</h1>;
+  return (
+    <h1
+      className="text-text-primary text-[18px] leading-[24px]"
+      style={{ fontWeight: 600 }}
+    >
+      Purchase orders
+    </h1>
+  );
 }

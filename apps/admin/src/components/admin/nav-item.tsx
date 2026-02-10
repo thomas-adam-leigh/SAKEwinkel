@@ -22,8 +22,7 @@ export function NavItem({
 }: NavItemProps) {
   const location = useLocation();
   const isActive =
-    location.pathname === to ||
-    (to !== "/" && location.pathname.startsWith(to + "/"));
+    location.pathname === to || (to !== "/" && location.pathname.startsWith(to + "/"));
 
   return (
     <div className="flex flex-col">
@@ -35,20 +34,16 @@ export function NavItem({
             onToggle();
           }
         }}
-        className={`flex items-center gap-2 h-[28px] rounded-[8px] text-[13px] text-text-primary transition-colors ${
-          indent ? "pl-[36px] pr-1" : "pl-2 pr-1"
-        } ${
-          isActive
-            ? "bg-bg-nav-active"
-            : "hover:bg-bg-nav-hover"
-        }`}
+        className={`text-text-primary flex h-[28px] items-center gap-2 rounded-[8px] text-[13px] transition-colors ${
+          indent ? "pr-1 pl-[36px]" : "pr-1 pl-2"
+        } ${isActive ? "bg-bg-nav-active" : "hover:bg-bg-nav-hover"}`}
         style={{ fontWeight: 450 }}
       >
-        {Icon && <Icon className="size-5 text-icon-default shrink-0" />}
+        {Icon && <Icon className="text-icon-default size-5 shrink-0" />}
         <span className="flex-1 truncate">{label}</span>
         {expandable && (
           <ChevronRight
-            className={`size-4 text-icon-default transition-transform ${
+            className={`text-icon-default size-4 transition-transform ${
               expanded ? "rotate-90" : ""
             }`}
           />

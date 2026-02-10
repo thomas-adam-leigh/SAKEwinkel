@@ -11,8 +11,7 @@ const variantStyles: Record<ButtonVariant, string> = {
     "bg-bg-primary text-text-on-dark shadow-[var(--shadow-polaris-btn-primary)] hover:bg-bg-primary-hover h-[28px] px-3 rounded-[8px]",
   secondary:
     "bg-bg-secondary-btn text-text-primary shadow-[var(--shadow-polaris-btn-secondary)] h-[28px] px-3 rounded-[8px]",
-  tertiary:
-    "bg-bg-tertiary text-text-primary shadow-none h-[28px] px-3 rounded-[8px]",
+  tertiary: "bg-bg-tertiary text-text-primary shadow-none h-[28px] px-3 rounded-[8px]",
   ghost:
     "bg-transparent text-text-primary text-[12px] font-[550] p-0 border-none shadow-none hover:underline",
 };

@@ -1,8 +1,8 @@
-import { Bell, Search, ChevronDown } from "lucide-react";
+import { Bell, ChevronDown, Search } from "lucide-react";
 
 export function TopBar() {
   return (
-    <header className="fixed top-0 left-0 right-0 h-[56px] bg-bg-topbar z-50 grid grid-cols-[1fr_auto_1fr] items-center px-5">
+    <header className="bg-bg-topbar fixed top-0 right-0 left-0 z-50 grid h-[56px] grid-cols-[1fr_auto_1fr] items-center px-5">
       {/* Left: Logo */}
       <div className="flex items-center gap-2">
         <svg
@@ -29,16 +29,14 @@ export function TopBar() {
       </div>
 
       {/* Center: Search placeholder */}
-      <div className="flex items-center bg-bg-search rounded-[12px] h-[36px] px-3 gap-2 min-w-[400px] max-w-[580px] cursor-pointer">
-        <Search className="size-4 text-icon-on-dark" />
-        <span className="text-text-placeholder text-[13px] flex-1">
-          Search
-        </span>
+      <div className="bg-bg-search flex h-[36px] max-w-[580px] min-w-[400px] cursor-pointer items-center gap-2 rounded-[12px] px-3">
+        <Search className="text-icon-on-dark size-4" />
+        <span className="text-text-placeholder flex-1 text-[13px]">Search</span>
         <div className="flex items-center gap-0.5">
-          <kbd className="bg-white/10 text-text-placeholder text-[11px] rounded px-1.5 py-0.5 font-medium">
+          <kbd className="text-text-placeholder rounded bg-white/10 px-1.5 py-0.5 text-[11px] font-medium">
             ⌘
           </kbd>
-          <kbd className="bg-white/10 text-text-placeholder text-[11px] rounded px-1.5 py-0.5 font-medium">
+          <kbd className="text-text-placeholder rounded bg-white/10 px-1.5 py-0.5 text-[11px] font-medium">
             K
           </kbd>
         </div>
@@ -48,20 +46,20 @@ export function TopBar() {
       <div className="flex items-center justify-end gap-2">
         <button
           type="button"
-          className="size-[36px] flex items-center justify-center rounded-[12px] hover:bg-white/10 transition-colors"
+          className="flex size-[36px] items-center justify-center rounded-[12px] transition-colors hover:bg-white/10"
           aria-label="Notifications"
         >
-          <Bell className="size-5 text-icon-on-dark" />
+          <Bell className="text-icon-on-dark size-5" />
         </button>
         <button
           type="button"
-          className="flex items-center gap-2 rounded-[12px] h-[36px] px-2 hover:bg-white/10 transition-colors"
+          className="flex h-[36px] items-center gap-2 rounded-[12px] px-2 transition-colors hover:bg-white/10"
           aria-label="Store switcher"
         >
-          <div className="size-6 rounded-full bg-emerald-600 flex items-center justify-center text-[11px] text-white font-semibold">
+          <div className="flex size-6 items-center justify-center rounded-full bg-emerald-600 text-[11px] font-semibold text-white">
             S
           </div>
-          <ChevronDown className="size-4 text-icon-on-dark" />
+          <ChevronDown className="text-icon-on-dark size-4" />
         </button>
       </div>
     </header>

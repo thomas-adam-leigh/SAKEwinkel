@@ -5,5 +5,12 @@ export const Route = createFileRoute("/_auth/settings/")({
 });
 
 function SettingsPage() {
-  return <h1 className="text-[18px] text-text-primary leading-[24px]" style={{ fontWeight: 600 }}>Settings</h1>;
+  return (
+    <h1
+      className="text-text-primary text-[18px] leading-[24px]"
+      style={{ fontWeight: 600 }}
+    >
+      Settings
+    </h1>
+  );
 }

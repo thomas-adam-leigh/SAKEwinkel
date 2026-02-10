@@ -11,10 +11,10 @@ export function AdminInput({
 }: AdminInputProps) {
   return (
     <div
-      className={`flex items-center h-[32px] rounded-[8px] border border-border-input bg-bg-input focus-within:border-border-input-focus focus-within:ring-2 focus-within:ring-border-focus-ring ${wrapperClassName}`}
+      className={`border-border-input bg-bg-input focus-within:border-border-input-focus focus-within:ring-border-focus-ring flex h-[32px] items-center rounded-[8px] border focus-within:ring-2 ${wrapperClassName}`}
     >
       <input
-        className={`flex-1 bg-transparent border-none text-[13px] text-text-primary px-3 py-1.5 outline-none placeholder:text-text-subdued ${className}`}
+        className={`text-text-primary placeholder:text-text-subdued flex-1 border-none bg-transparent px-3 py-1.5 text-[13px] outline-none ${className}`}
         {...props}
       />
     </div>

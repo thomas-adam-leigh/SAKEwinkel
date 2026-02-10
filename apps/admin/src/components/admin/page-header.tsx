@@ -10,19 +10,19 @@ export function PageHeader({ title, showBackArrow = true }: PageHeaderProps) {
   const router = useRouter();
 
   return (
-    <div className="flex items-center gap-2 mb-4">
+    <div className="mb-4 flex items-center gap-2">
       {showBackArrow && (
         <button
           type="button"
           onClick={() => router.history.back()}
-          className="flex items-center justify-center size-7 rounded-[8px] hover:bg-bg-nav-hover transition-colors"
+          className="hover:bg-bg-nav-hover flex size-7 items-center justify-center rounded-[8px] transition-colors"
           aria-label="Go back"
         >
-          <ArrowLeft className="size-5 text-text-primary" />
+          <ArrowLeft className="text-text-primary size-5" />
         </button>
       )}
       <h1
-        className="text-[18px] text-text-primary leading-[24px]"
+        className="text-text-primary text-[18px] leading-[24px]"
         style={{ fontWeight: 600 }}
       >
         {title}

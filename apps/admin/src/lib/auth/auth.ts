@@ -1,6 +1,6 @@
-import { createServerOnlyFn } from "@tanstack/react-start";
-import { initAuth } from "@b4i-atlas/auth";
 import { env } from "@/env/server";
+import { initAuth } from "@b4i-atlas/auth";
+import { createServerOnlyFn } from "@tanstack/react-start";
 
 const getAuthConfig = createServerOnlyFn(() =>
   initAuth({

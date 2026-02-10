@@ -5,5 +5,12 @@ export const Route = createFileRoute("/_auth/products/gift-cards")({
 });
 
 function GiftCardsPage() {
-  return <h1 className="text-[18px] text-text-primary leading-[24px]" style={{ fontWeight: 600 }}>Gift cards</h1>;
+  return (
+    <h1
+      className="text-text-primary text-[18px] leading-[24px]"
+      style={{ fontWeight: 600 }}
+    >
+      Gift cards
+    </h1>
+  );
 }

@@ -1,13 +1,13 @@
 import { Outlet } from "@tanstack/react-router";
-import { TopBar } from "./top-bar";
 import { Sidebar } from "./sidebar";
+import { TopBar } from "./top-bar";
 
 export function AppShell() {
   return (
-    <div className="min-h-screen bg-bg-topbar">
+    <div className="bg-bg-topbar min-h-screen">
       <TopBar />
       <Sidebar />
-      <main className="ml-[240px] mt-[56px] min-h-[calc(100vh-56px)] bg-bg-page p-6 rounded-tr-[10px]">
+      <main className="bg-bg-page mt-[56px] ml-[240px] min-h-[calc(100vh-56px)] rounded-tr-[10px] p-6">
         <Outlet />
       </main>
     </div>

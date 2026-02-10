@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import authClient from "@/lib/auth/auth-client";
 import { authQueryOptions } from "@/lib/auth";
+import authClient from "@/lib/auth/auth-client";
 import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "@tanstack/react-router";
 

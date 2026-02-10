@@ -1,6 +1,6 @@
+import { AppShell } from "@/components/admin/app-shell";
 import { authQueryOptions } from "@/lib/auth";
 import { createFileRoute, redirect } from "@tanstack/react-router";
-import { AppShell } from "@/components/admin/app-shell";
 
 export const Route = createFileRoute("/_auth")({
   component: AppShell,

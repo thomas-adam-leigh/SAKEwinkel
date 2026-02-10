@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { ChevronRight } from "lucide-react";
+import { useState } from "react";
 
 interface NavSectionProps {
   readonly label: string;
@@ -7,11 +7,7 @@ interface NavSectionProps {
   readonly children: React.ReactNode;
 }
 
-export function NavSection({
-  label,
-  defaultOpen = true,
-  children,
-}: NavSectionProps) {
+export function NavSection({ label, defaultOpen = true, children }: NavSectionProps) {
   const [open, setOpen] = useState(defaultOpen);
 
   return (
@@ -19,11 +15,11 @@ export function NavSection({
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="flex items-center w-full h-[24px] px-2 py-1 text-[13px] text-black font-normal"
+        className="flex h-[24px] w-full items-center px-2 py-1 text-[13px] font-normal text-black"
       >
         <span className="flex-1 text-left">{label}</span>
         <ChevronRight
-          className={`size-4 text-icon-default transition-transform ${
+          className={`text-icon-default size-4 transition-transform ${
             open ? "rotate-90" : ""
           }`}
         />

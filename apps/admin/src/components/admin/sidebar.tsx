@@ -1,19 +1,19 @@
-import { useState, useEffect } from "react";
 import { useLocation } from "@tanstack/react-router";
 import {
-  Home,
-  ShoppingCart,
-  Package,
-  Users,
-  Megaphone,
-  Tag,
+  BarChart3,
   FileText,
   Globe,
-  BarChart3,
-  Store,
-  Settings,
+  Home,
+  Megaphone,
+  Package,
   Plus,
+  Settings,
+  ShoppingCart,
+  Store,
+  Tag,
+  Users,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 import { NavItem } from "./nav-item";
 import { NavSection } from "./nav-section";
 
@@ -95,9 +95,7 @@ export function Sidebar() {
   const getInitialExpanded = () => {
     const expanded: Record<string, boolean> = {};
     for (const item of expandableNavItems) {
-      const isChildActive = item.children.some(
-        (child) => location.pathname === child.to
-      );
+      const isChildActive = item.children.some((child) => location.pathname === child.to);
       if (isChildActive || location.pathname === item.to) {
         expanded[item.key] = true;
       }
@@ -105,16 +103,12 @@ export function Sidebar() {
     return expanded;
   };
 
-  const [expanded, setExpanded] = useState<Record<string, boolean>>(
-    getInitialExpanded
-  );
+  const [expanded, setExpanded] = useState<Record<string, boolean>>(getInitialExpanded);
 
   // Auto-expand when navigating to sub-pages
   useEffect(() => {
     for (const item of expandableNavItems) {
-      const isChildActive = item.children.some(
-        (child) => location.pathname === child.to
-      );
+      const isChildActive = item.children.some((child) => location.pathname === child.to);
       if (isChildActive) {
         setExpanded((prev) => ({ ...prev, [item.key]: true }));
       }
@@ -126,8 +120,8 @@ export function Sidebar() {
   };
 
   return (
-    <aside className="fixed top-[56px] left-0 w-[240px] h-[calc(100vh-56px)] bg-bg-sidebar z-40 overflow-y-auto flex flex-col rounded-tl-[10px]">
-      <nav className="flex flex-col gap-0.5 p-2 flex-1">
+    <aside className="bg-bg-sidebar fixed top-[56px] left-0 z-40 flex h-[calc(100vh-56px)] w-[240px] flex-col overflow-y-auto rounded-tl-[10px]">
+      <nav className="flex flex-1 flex-col gap-0.5 p-2">
         {/* Home */}
         <NavItem icon={Home} label="Home" to="/" />
 
@@ -144,12 +138,7 @@ export function Sidebar() {
             />
             {expanded[item.key] &&
               item.children.map((child) => (
-                <NavItem
-                  key={child.to}
-                  label={child.label}
-                  to={child.to}
-                  indent
-                />
+                <NavItem key={child.to} label={child.label} to={child.to} indent />
               ))}
           </div>
         ))}
@@ -170,10 +159,10 @@ export function Sidebar() {
           <NavSection label="Apps">
             <button
               type="button"
-              className="flex items-center gap-2 h-[28px] rounded-[8px] text-[13px] text-text-secondary pl-2 pr-1 hover:bg-bg-nav-hover transition-colors w-full"
+              className="text-text-secondary hover:bg-bg-nav-hover flex h-[28px] w-full items-center gap-2 rounded-[8px] pr-1 pl-2 text-[13px] transition-colors"
               style={{ fontWeight: 550 }}
             >
-              <Plus className="size-5 text-icon-default" />
+              <Plus className="text-icon-default size-5" />
               <span>Add</span>
             </button>
           </NavSection>
