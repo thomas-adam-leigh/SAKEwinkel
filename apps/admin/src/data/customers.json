@@ -1,0 +1,12 @@
+[
+  { "id": "cust_001", "firstName": "Emma", "lastName": "Van den Berg", "email": "emma.vandenberg@mail.nl", "emailSubscription": "subscribed", "city": "Amsterdam", "country": "Netherlands", "orders": 12, "amountSpent": 1284.50 },
+  { "id": "cust_002", "firstName": "Lucas", "lastName": "Müller", "email": "lucas.muller@web.de", "emailSubscription": "not_subscribed", "city": "Berlin", "country": "Germany", "orders": 3, "amountSpent": 245.00 },
+  { "id": "cust_003", "firstName": "Sophie", "lastName": "Dubois", "email": "sophie.dubois@orange.fr", "emailSubscription": "subscribed", "city": "Paris", "country": "France", "orders": 8, "amountSpent": 892.75 },
+  { "id": "cust_004", "firstName": "James", "lastName": "O'Brien", "email": "james.obrien@gmail.com", "emailSubscription": "not_subscribed", "city": "Dublin", "country": "Ireland", "orders": 1, "amountSpent": 67.00 },
+  { "id": "cust_005", "firstName": "Maria", "lastName": "Santos", "email": "maria.santos@outlook.pt", "emailSubscription": "subscribed", "city": "Lisbon", "country": "Portugal", "orders": 5, "amountSpent": 523.20 },
+  { "id": "cust_006", "firstName": "Henrik", "lastName": "Lindqvist", "email": "henrik.lindqvist@telia.se", "emailSubscription": "not_subscribed", "city": "Stockholm", "country": "Sweden", "orders": 2, "amountSpent": 178.90 },
+  { "id": "cust_007", "firstName": "Yuki", "lastName": "Tanaka", "email": "yuki.tanaka@yahoo.co.jp", "emailSubscription": "subscribed", "city": "Tokyo", "country": "Japan", "orders": 15, "amountSpent": 2340.00 },
+  { "id": "cust_008", "firstName": "Oliver", "lastName": "Smith", "email": "oliver.smith@hotmail.co.uk", "emailSubscription": "not_subscribed", "city": "London", "country": "United Kingdom", "orders": 0, "amountSpent": 0.00 },
+  { "id": "cust_009", "firstName": "Anna", "lastName": "Kowalski", "email": "anna.kowalski@wp.pl", "emailSubscription": "subscribed", "city": "Warsaw", "country": "Poland", "orders": 7, "amountSpent": 614.30 },
+  { "id": "cust_010", "firstName": "Marco", "lastName": "Rossi", "email": "marco.rossi@libero.it", "emailSubscription": "not_subscribed", "city": "Milan", "country": "Italy", "orders": 4, "amountSpent": 356.00 }
+]
