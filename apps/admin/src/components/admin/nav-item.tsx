@@ -25,13 +25,11 @@ export function NavItem({ icon: Icon, label, to, comingSoon, disabled }: NavItem
       <span className="flex-1 truncate">{label}</span>
       {comingSoon && (
         <span
-          className="shrink-0 rounded-full"
+          className="bg-bg-pill-coming-soon shrink-0 rounded-full text-white"
           style={{
             fontSize: 11,
             fontWeight: 550,
             padding: "1px 6px",
-            background: "#e4e4e4",
-            color: "#616161",
           }}
         >
           Coming soon

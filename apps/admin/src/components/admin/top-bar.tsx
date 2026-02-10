@@ -57,7 +57,7 @@ export function TopBar() {
           className="flex h-[36px] items-center gap-2 rounded-[12px] px-2 transition-colors hover:bg-white/10"
           aria-label="Store switcher"
         >
-          <div className="flex size-6 items-center justify-center rounded-full bg-emerald-600 text-[11px] font-semibold text-white">
+          <div className="bg-bg-avatar flex size-6 items-center justify-center rounded-full text-[11px] font-semibold text-white">
             S
           </div>
           <ChevronDown className="text-icon-on-dark size-4" />
