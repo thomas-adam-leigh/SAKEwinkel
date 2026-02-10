@@ -1,0 +1,24 @@
+{
+  "name": "@b4i-atlas/storage",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@azure/storage-blob": "^12.26.0"
+  },
+  "devDependencies": {
+    "@b4i-atlas/eslint-config": "workspace:*",
+    "@b4i-atlas/tsconfig": "workspace:*",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,16 @@
+[   14635ms] [ERROR] WebSocket connection to 'ws://localhost:3000/?token=mEU3kb3IxpBK' failed:  @ http://localhost:3000/@vite/client:743
+[   15103ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/__tsd/console-pipe:0
+[   60565ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/src/routes/_auth/marketing/index.tsx?tsr-split=component:0
+[   60616ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/src/routes/_auth/products/index.tsx?tsr-split=component:0
+[   61453ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/src/routes/_auth/products/collections.tsx?tsr-split=component:0
+[   63933ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/@tanstack-start/styles.css?routes=__root__%2C%2F_auth%2C%2F_auth%2Fsettings%2F:0
+[   63971ms] [ERROR] WebSocket connection to 'ws://localhost:3000/?token=mEU3kb3IxpBK' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/@vite/client:743
+[   63974ms] [ERROR] WebSocket connection to 'ws://localhost:3000/?token=mEU3kb3IxpBK' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/@vite/client:753
+[   63974ms] [ERROR] [vite] failed to connect to websocket.
+your current setup:
+  (browser) localhost:3000/ <--[HTTP]--> localhost:3000/ (server)
+  (browser) localhost:3000/ <--[WebSocket (failing)]--> localhost:3000/ (server)
+Check out your Vite / network configuration and https://vite.dev/config/server-options.html#server-hmr . @ http://localhost:3000/@vite/client:763
+[   63976ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/favicon.ico:0
+[   64002ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/src/router.tsx:0
+[   64020ms] Failed to fetch dynamically imported module: http://localhost:3000/@id/virtual:tanstack-start-client-entry

@@ -1,0 +1,12 @@
+[    2390ms] Error: createServerOnlyFn() functions can only be called on the server!
+    at getAuthConfig (http://localhost:3000/src/lib/auth/auth.ts:2:8)
+    at http://localhost:3000/src/lib/auth/auth.ts:4:21
+[  164901ms] [ERROR] %o
+
+%s
+
+%s
+ Error: Cannot read properties of null (reading 'context')
+    at http://localhost:3000/:49:1502
+    at http://localhost:3000/:49:1780 The above error occurred in the <UserAction> component. React will try to recreate this component tree from scratch using the error boundary you provided, CatchBoundaryImpl. @ http://localhost:3000/src/routes/__root.tsx:66
+[  164907ms] [WARNING] Warning: Error in route match: // @ http://localhost:3000/src/routes/__root.tsx:66

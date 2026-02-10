@@ -1,0 +1,55 @@
+{
+  "name": "@b4i-atlas/auth",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./client": "./src/client.ts",
+    "./tanstack-start": "./src/tanstack-start.ts",
+    "./tanstack-start/server": "./src/tanstack-start-server.ts",
+    "./env": "./env.ts"
+  },
+  "license": "MIT",
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint --flag unstable_native_nodejs_ts_config",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@b4i-atlas/db": "workspace:*",
+    "@t3-oss/env-core": "^0.13.10",
+    "better-auth": "catalog:",
+    "zod": "catalog:"
+  },
+  "peerDependencies": {
+    "@tanstack/react-query": ">=5",
+    "@tanstack/react-start": ">=1",
+    "react": ">=19"
+  },
+  "peerDependenciesMeta": {
+    "@tanstack/react-query": {
+      "optional": true
+    },
+    "@tanstack/react-start": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@b4i-atlas/eslint-config": "workspace:*",
+    "@b4i-atlas/prettier-config": "workspace:*",
+    "@b4i-atlas/tsconfig": "workspace:*",
+    "@better-auth/cli": "catalog:",
+    "@tanstack/react-query": "catalog:",
+    "@tanstack/react-start": "^1.159.4",
+    "@types/node": "catalog:",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "react": "^19.2.4",
+    "typescript": "catalog:"
+  },
+  "prettier": "@b4i-atlas/prettier-config"
+}

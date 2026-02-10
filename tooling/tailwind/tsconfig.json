@@ -1,0 +1,5 @@
+{
+  "extends": "@b4i-atlas/tsconfig/base.json",
+  "include": ["."],
+  "exclude": ["node_modules"]
+}

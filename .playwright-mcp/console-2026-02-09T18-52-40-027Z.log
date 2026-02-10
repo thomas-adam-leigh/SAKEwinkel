@@ -1,0 +1,40 @@
+[     466ms] Error: redacted
+    at http://localhost:3000/:8:7923
+    at http://localhost:3000/:8:7946
+[     605ms] Error: Switched to client rendering because the server rendering errored:
+
+Cannot read properties of null (reading 'context')
+    at userNext (/Users/adamleigh/Development/SAKEwinkel/node_modules/.pnpm/@tanstack+start-client-core@1.159.4/node_modules/@tanstack/start-client-core/src/createServerFn.ts:257:59)
+    at client (/Users/adamleigh/Development/SAKEwinkel/node_modules/.pnpm/@tanstack+start-client-core@1.159.4/node_modules/@tanstack/start-client-core/src/createServerFn.ts:785:16)
+    at callNextMiddleware (/Users/adamleigh/Development/SAKEwinkel/node_modules/.pnpm/@tanstack+start-client-core@1.159.4/node_modules/@tanstack/start-client-core/src/createServerFn.ts:281:24)
+    at Object.assign (/Users/adamleigh/Development/SAKEwinkel/node_modules/.pnpm/@tanstack+start-client-core@1.159.4/node_modules/@tanstack/start-client-core/src/createServerFn.ts:120:26)
+[    1608ms] [ERROR] Failed to load resource: the server responded with a status of 500 () @ http://localhost:3000/_serverFn/eyJmaWxlIjoiL0BpZC8vVXNlcnMvYWRhbWxlaWdoL0RldmVsb3BtZW50L1NBS0V3aW5rZWwvcGFja2FnZXMvYXV0aC9zcmMvdGFuc3RhY2stc3RhcnQudHM_dHNzLXNlcnZlcmZuLXNwbGl0IiwiZXhwb3J0IjoiJGdldFVzZXJfY3JlYXRlU2VydmVyRm5faGFuZGxlciJ9:0
+[    1653ms] [ERROR] %c[Server]%c color: #9333ea; font-weight: bold; color: inherit; {} @ http://localhost:3000/src/routes/__root.tsx:138
+[    3627ms] [ERROR] Failed to load resource: the server responded with a status of 500 () @ http://localhost:3000/_serverFn/eyJmaWxlIjoiL0BpZC8vVXNlcnMvYWRhbWxlaWdoL0RldmVsb3BtZW50L1NBS0V3aW5rZWwvcGFja2FnZXMvYXV0aC9zcmMvdGFuc3RhY2stc3RhcnQudHM_dHNzLXNlcnZlcmZuLXNwbGl0IiwiZXhwb3J0IjoiJGdldFVzZXJfY3JlYXRlU2VydmVyRm5faGFuZGxlciJ9:0
+[    3676ms] [ERROR] %c[Server]%c color: #9333ea; font-weight: bold; color: inherit; {} @ http://localhost:3000/src/routes/__root.tsx:138
+[    7667ms] [ERROR] Failed to load resource: the server responded with a status of 500 () @ http://localhost:3000/_serverFn/eyJmaWxlIjoiL0BpZC8vVXNlcnMvYWRhbWxlaWdoL0RldmVsb3BtZW50L1NBS0V3aW5rZWwvcGFja2FnZXMvYXV0aC9zcmMvdGFuc3RhY2stc3RhcnQudHM_dHNzLXNlcnZlcmZuLXNwbGl0IiwiZXhwb3J0IjoiJGdldFVzZXJfY3JlYXRlU2VydmVyRm5faGFuZGxlciJ9:0
+[    7681ms] [ERROR] %o
+
+%s
+
+%s
+ Error: action is not a function
+    at Object.deserialize (http://localhost:3000/@fs/Users/adamleigh/Development/SAKEwinkel/node_modules/.pnpm/@tanstack+router-core@1.159.4/node_modules/@tanstack/router-core/dist/esm/ssr/serializer/ShallowErrorPlugin.js?v=2cf3caa8:28:12)
+    at deserializePlugin (http://localhost:3000/@fs/Users/adamleigh/Development/SAKEwinkel/node_modules/.pnpm/seroval@1.5.0/node_modules/seroval/dist/esm/development/index.mjs?v=2cf3caa8:2198:18)
+    at deserialize (http://localhost:3000/@fs/Users/adamleigh/Development/SAKEwinkel/node_modules/.pnpm/seroval@1.5.0/node_modules/seroval/dist/esm/development/index.mjs?v=2cf3caa8:2346:14)
+    at deserializeTop (http://localhost:3000/@fs/Users/adamleigh/Development/SAKEwinkel/node_modules/.pnpm/seroval@1.5.0/node_modules/seroval/dist/esm/development/index.mjs?v=2cf3caa8:2378:12)
+    at fromCrossJSON (http://localhost:3000/@fs/Users/adamleigh/Development/SAKEwinkel/node_modules/.pnpm/seroval@1.5.0/node_modules/seroval/dist/esm/development/index.mjs?v=2cf3caa8:3953:10)
+    at getResponse (http://localhost:3000/@fs/Users/adamleigh/Development/SAKEwinkel/node_modules/.pnpm/@tanstack+start-client-core@1.159.4/node_modules/@tanstack/start-client-core/dist/esm/client-rpc/serverFnFetcher.js?v=2cf3caa8:153:16)
+    at async serverFnFetcher (http://localhost:3000/@fs/Users/adamleigh/Development/SAKEwinkel/node_modules/.pnpm/@tanstack+start-client-core@1.159.4/node_modules/@tanstack/start-client-core/dist/esm/client-rpc/serverFnFetcher.js?v=2cf3caa8:57:10)
+    at async client (http://localhost:3000/@fs/Users/adamleigh/Development/SAKEwinkel/node_modules/.pnpm/@tanstack+start-client-core@1.159.4/node_modules/@tanstack/start-client-core/dist/esm/createServerFn.js?v=2cf3caa8:251:21)
+    at async callNextMiddleware (http://localhost:3000/@fs/Users/adamleigh/Development/SAKEwinkel/node_modules/.pnpm/@tanstack+start-client-core@1.159.4/node_modules/@tanstack/start-client-core/dist/esm/createServerFn.js?v=2cf3caa8:162:24)
+    at async Object.assign (http://localhost:3000/@fs/Users/adamleigh/Development/SAKEwinkel/node_modules/.pnpm/@tanstack+start-client-core@1.159.4/node_modules/@tanstack/start-client-core/dist/esm/createServerFn.js?v=2cf3caa8:46:26) The above error occurred in the <UserAction> component. React will try to recreate this component tree from scratch using the error boundary you provided, CatchBoundaryImpl. @ http://localhost:3000/src/routes/__root.tsx:66
+[    7682ms] [WARNING] Warning: Error in route match: // @ http://localhost:3000/src/routes/__root.tsx:66
+[    7718ms] [ERROR] %c[Server]%c color: #9333ea; font-weight: bold; color: inherit; {} @ http://localhost:3000/src/routes/__root.tsx:138
+[  269536ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/@fs/Users/adamleigh/Development/SAKEwinkel/node_modules/.pnpm/@tanstack+start-server-core@1.159.4_crossws@0.4.4_srvx@0.11.2_/node_modules/@tanstack/start-server-core/dist/esm/router-manifest.js?v=2cf3caa8:0
+[  269539ms] [ERROR] [vite] Failed to reload /src/components/sign-out-button.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/src/routes/__root.tsx:66
+[  269541ms] [ERROR] [vite] Failed to reload /src/routes/__root.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/src/routes/__root.tsx:66
+[  269541ms] [ERROR] [vite] Failed to reload /src/routes/_auth/route.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/src/routes/__root.tsx:66
+[  269542ms] [ERROR] [vite] Failed to reload /src/routes/index.tsx?tsr-split=component. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/src/routes/__root.tsx:66
+[  269542ms] [ERROR] [vite] Failed to reload /src/routes/_guest/route.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/src/routes/__root.tsx:66
+[  269746ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/:0

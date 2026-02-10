@@ -1,0 +1,7 @@
+{
+  "name": "@b4i-atlas/tsconfig",
+  "private": true,
+  "files": [
+    "*.json"
+  ]
+}
