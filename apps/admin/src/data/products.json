@@ -1,0 +1,65 @@
+[
+  {
+    "id": "prod-001",
+    "title": "SAKEwinkel Junmai Daiginjo",
+    "status": "Active",
+    "inventory": 150,
+    "category": "Sake",
+    "channelCount": 3,
+    "thumbnailUrl": "https://placehold.co/36x36/e8d5b7/303030?text=JD"
+  },
+  {
+    "id": "prod-002",
+    "title": "Kubota Manju Junmai Daiginjo",
+    "status": "Active",
+    "inventory": 42,
+    "category": "Sake",
+    "channelCount": 2,
+    "thumbnailUrl": "https://placehold.co/36x36/d4e8c2/303030?text=KM"
+  },
+  {
+    "id": "prod-003",
+    "title": "Dassai 23 Junmai Daiginjo",
+    "status": "Active",
+    "inventory": 87,
+    "category": "Sake",
+    "channelCount": 3,
+    "thumbnailUrl": "https://placehold.co/36x36/c2d4e8/303030?text=D2"
+  },
+  {
+    "id": "prod-004",
+    "title": "Hakkaisan Tokubetsu Honjozo",
+    "status": "Active",
+    "inventory": 210,
+    "category": "Sake",
+    "channelCount": 2,
+    "thumbnailUrl": "https://placehold.co/36x36/e8c2c2/303030?text=HT"
+  },
+  {
+    "id": "prod-005",
+    "title": "Seasonal Yuzu Nigori",
+    "status": "Draft",
+    "inventory": 0,
+    "category": "Sake",
+    "channelCount": 1,
+    "thumbnailUrl": "https://placehold.co/36x36/f0e6c8/303030?text=YN"
+  },
+  {
+    "id": "prod-006",
+    "title": "Premium Sake Gift Set",
+    "status": "Draft",
+    "inventory": 25,
+    "category": "Gift Sets",
+    "channelCount": 1,
+    "thumbnailUrl": "https://placehold.co/36x36/d8c8e8/303030?text=GS"
+  },
+  {
+    "id": "prod-007",
+    "title": "Winter Warm Sake Collection",
+    "status": "Archived",
+    "inventory": 3,
+    "category": "Gift Sets",
+    "channelCount": 0,
+    "thumbnailUrl": "https://placehold.co/36x36/c8c8c8/303030?text=WW"
+  }
+]
