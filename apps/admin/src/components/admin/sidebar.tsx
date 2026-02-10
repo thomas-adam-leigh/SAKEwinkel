@@ -1,177 +1,50 @@
-import { useLocation } from "@tanstack/react-router";
 import {
   BarChart3,
+  ClipboardList,
+  FileBarChart,
   FileText,
-  Globe,
-  Home,
+  Mail,
   Megaphone,
   Package,
-  Plus,
-  Settings,
+  Scale,
   ShoppingCart,
-  Store,
-  Tag,
+  Truck,
   Users,
+  UserCog,
 } from "lucide-react";
-import { useEffect, useState } from "react";
 import { NavItem } from "./nav-item";
 import { NavSection } from "./nav-section";
 
-interface ExpandableNav {
-  key: string;
-  icon: typeof Home;
-  label: string;
-  to: string;
-  children: Array<{ label: string; to: string }>;
-}
-
-const expandableNavItems: ExpandableNav[] = [
-  {
-    key: "orders",
-    icon: ShoppingCart,
-    label: "Orders",
-    to: "/orders",
-    children: [
-      { label: "Drafts", to: "/orders/drafts" },
-      { label: "Abandoned checkouts", to: "/orders/abandoned" },
-    ],
-  },
-  {
-    key: "products",
-    icon: Package,
-    label: "Products",
-    to: "/products",
-    children: [
-      { label: "Collections", to: "/products/collections" },
-      { label: "Inventory", to: "/products/inventory" },
-      { label: "Purchase orders", to: "/products/purchase-orders" },
-      { label: "Transfers", to: "/products/transfers" },
-      { label: "Gift cards", to: "/products/gift-cards" },
-    ],
-  },
-  {
-    key: "customers",
-    icon: Users,
-    label: "Customers",
-    to: "/customers",
-    children: [{ label: "Segments", to: "/customers/segments" }],
-  },
-  {
-    key: "marketing",
-    icon: Megaphone,
-    label: "Marketing",
-    to: "/marketing",
-    children: [
-      { label: "Automations", to: "/marketing/automations" },
-      { label: "Campaigns", to: "/marketing/campaigns" },
-    ],
-  },
-  {
-    key: "content",
-    icon: FileText,
-    label: "Content",
-    to: "/content",
-    children: [
-      { label: "Metaobjects", to: "/content/metaobjects" },
-      { label: "Files", to: "/content/files" },
-    ],
-  },
-  {
-    key: "analytics",
-    icon: BarChart3,
-    label: "Analytics",
-    to: "/analytics",
-    children: [
-      { label: "Reports", to: "/analytics/reports" },
-      { label: "Live View", to: "/analytics/live" },
-    ],
-  },
-];
-
 export function Sidebar() {
-  const location = useLocation();
-
-  // Auto-expand parents based on current URL
-  const getInitialExpanded = () => {
-    const expanded: Record<string, boolean> = {};
-    for (const item of expandableNavItems) {
-      const isChildActive = item.children.some((child) => location.pathname === child.to);
-      if (isChildActive || location.pathname === item.to) {
-        expanded[item.key] = true;
-      }
-    }
-    return expanded;
-  };
-
-  const [expanded, setExpanded] = useState<Record<string, boolean>>(getInitialExpanded);
-
-  // Auto-expand when navigating to sub-pages
-  useEffect(() => {
-    for (const item of expandableNavItems) {
-      const isChildActive = item.children.some((child) => location.pathname === child.to);
-      if (isChildActive) {
-        setExpanded((prev) => ({ ...prev, [item.key]: true }));
-      }
-    }
-  }, [location.pathname]);
-
-  const toggleExpanded = (key: string) => {
-    setExpanded((prev) => ({ ...prev, [key]: !prev[key] }));
-  };
-
   return (
     <aside className="bg-bg-sidebar fixed top-[56px] left-0 z-40 flex h-[calc(100vh-56px)] w-[240px] flex-col overflow-y-auto rounded-tl-[10px]">
       <nav className="flex flex-1 flex-col gap-0.5 p-2">
-        {/* Home */}
-        <NavItem icon={Home} label="Home" to="/" />
+        <NavSection label="Operations">
+          <NavItem icon={ShoppingCart} label="Orders" to="/orders" />
+          <NavItem icon={Package} label="Products" to="/products" />
+          <NavItem icon={Truck} label="Suppliers" to="/suppliers" />
+          <NavItem icon={Users} label="Customers" to="/customers" />
+        </NavSection>
 
-        {/* Expandable nav items */}
-        {expandableNavItems.map((item) => (
-          <div key={item.key}>
-            <NavItem
-              icon={item.icon}
-              label={item.label}
-              to={item.to}
-              expandable
-              expanded={expanded[item.key]}
-              onToggle={() => toggleExpanded(item.key)}
-            />
-            {expanded[item.key] &&
-              item.children.map((child) => (
-                <NavItem key={child.to} label={child.label} to={child.to} indent />
-              ))}
-          </div>
-        ))}
+        <NavSection label="Insights">
+          <NavItem icon={BarChart3} label="Analytics" to="/analytics" />
+          <NavItem icon={FileBarChart} label="Reports" comingSoon disabled />
+        </NavSection>
 
-        {/* Non-expandable items */}
-        <NavItem icon={Tag} label="Discounts" to="/discounts" />
-        <NavItem icon={Globe} label="Markets" to="/markets" />
+        <NavSection label="Growth">
+          <NavItem icon={Megaphone} label="Marketing" comingSoon disabled />
+          <NavItem icon={FileText} label="Content" comingSoon disabled />
+        </NavSection>
 
-        {/* Sales channels section */}
-        <div className="mt-2">
-          <NavSection label="Sales channels">
-            <NavItem icon={Store} label="Online Store" to="/online-store" />
-          </NavSection>
-        </div>
+        <NavSection label="Configuration">
+          <NavItem icon={Scale} label="Legal" to="/legal" />
+          <NavItem icon={Mail} label="Email Templates" to="/email-templates" />
+        </NavSection>
 
-        {/* Apps section */}
-        <div className="mt-1">
-          <NavSection label="Apps">
-            <button
-              type="button"
-              className="text-text-secondary hover:bg-bg-nav-hover flex h-[28px] w-full items-center gap-2 rounded-[8px] pr-1 pl-2 text-[13px] transition-colors"
-              style={{ fontWeight: 550 }}
-            >
-              <Plus className="text-icon-default size-5" />
-              <span>Add</span>
-            </button>
-          </NavSection>
-        </div>
-
-        {/* Spacer + Settings */}
-        <div className="mt-auto pt-2">
-          <NavItem icon={Settings} label="Settings" to="/settings" />
-        </div>
+        <NavSection label="Admin">
+          <NavItem icon={UserCog} label="Team" comingSoon disabled />
+          <NavItem icon={ClipboardList} label="Audit Log" comingSoon disabled />
+        </NavSection>
       </nav>
     </aside>
   );

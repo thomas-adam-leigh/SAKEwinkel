@@ -14,36 +14,16 @@ import { Route as AuthRouteRouteImport } from './routes/_auth/route'
 import { Route as AuthIndexRouteImport } from './routes/_auth/index'
 import { Route as GuestSignupRouteImport } from './routes/_guest/signup'
 import { Route as GuestLoginRouteImport } from './routes/_guest/login'
-import { Route as AuthSettingsIndexRouteImport } from './routes/_auth/settings/index'
+import { Route as AuthSuppliersRouteRouteImport } from './routes/_auth/suppliers/route'
+import { Route as AuthLegalRouteRouteImport } from './routes/_auth/legal/route'
+import { Route as AuthEmailTemplatesRouteRouteImport } from './routes/_auth/email-templates/route'
 import { Route as AuthProductsIndexRouteImport } from './routes/_auth/products/index'
 import { Route as AuthOrdersIndexRouteImport } from './routes/_auth/orders/index'
-import { Route as AuthOnlineStoreIndexRouteImport } from './routes/_auth/online-store/index'
-import { Route as AuthMarketsIndexRouteImport } from './routes/_auth/markets/index'
-import { Route as AuthMarketingIndexRouteImport } from './routes/_auth/marketing/index'
-import { Route as AuthDiscountsIndexRouteImport } from './routes/_auth/discounts/index'
 import { Route as AuthCustomersIndexRouteImport } from './routes/_auth/customers/index'
-import { Route as AuthContentIndexRouteImport } from './routes/_auth/content/index'
 import { Route as AuthAnalyticsIndexRouteImport } from './routes/_auth/analytics/index'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
-import { Route as AuthProductsTransfersRouteImport } from './routes/_auth/products/transfers'
-import { Route as AuthProductsPurchaseOrdersRouteImport } from './routes/_auth/products/purchase-orders'
+import { Route as AuthSuppliersNewRouteImport } from './routes/_auth/suppliers/new'
 import { Route as AuthProductsNewRouteImport } from './routes/_auth/products/new'
-import { Route as AuthProductsInventoryRouteImport } from './routes/_auth/products/inventory'
-import { Route as AuthProductsGiftCardsRouteImport } from './routes/_auth/products/gift-cards'
-import { Route as AuthProductsCollectionsRouteImport } from './routes/_auth/products/collections'
-import { Route as AuthProductsIdRouteImport } from './routes/_auth/products/$id'
-import { Route as AuthOrdersDraftsRouteImport } from './routes/_auth/orders/drafts'
-import { Route as AuthOrdersAbandonedRouteImport } from './routes/_auth/orders/abandoned'
-import { Route as AuthOrdersIdRouteImport } from './routes/_auth/orders/$id'
-import { Route as AuthMarketingCampaignsRouteImport } from './routes/_auth/marketing/campaigns'
-import { Route as AuthMarketingAutomationsRouteImport } from './routes/_auth/marketing/automations'
-import { Route as AuthCustomersSegmentsRouteImport } from './routes/_auth/customers/segments'
-import { Route as AuthCustomersNewRouteImport } from './routes/_auth/customers/new'
-import { Route as AuthCustomersIdRouteImport } from './routes/_auth/customers/$id'
-import { Route as AuthContentMetaobjectsRouteImport } from './routes/_auth/content/metaobjects'
-import { Route as AuthContentFilesRouteImport } from './routes/_auth/content/files'
-import { Route as AuthAnalyticsReportsRouteImport } from './routes/_auth/analytics/reports'
-import { Route as AuthAnalyticsLiveRouteImport } from './routes/_auth/analytics/live'
 
 const GuestRouteRoute = GuestRouteRouteImport.update({
   id: '/_guest',
@@ -68,9 +48,19 @@ const GuestLoginRoute = GuestLoginRouteImport.update({
   path: '/login',
   getParentRoute: () => GuestRouteRoute,
 } as any)
-const AuthSettingsIndexRoute = AuthSettingsIndexRouteImport.update({
-  id: '/settings/',
-  path: '/settings/',
+const AuthSuppliersRouteRoute = AuthSuppliersRouteRouteImport.update({
+  id: '/suppliers',
+  path: '/suppliers',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
+const AuthLegalRouteRoute = AuthLegalRouteRouteImport.update({
+  id: '/legal',
+  path: '/legal',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
+const AuthEmailTemplatesRouteRoute = AuthEmailTemplatesRouteRouteImport.update({
+  id: '/email-templates',
+  path: '/email-templates',
   getParentRoute: () => AuthRouteRoute,
 } as any)
 const AuthProductsIndexRoute = AuthProductsIndexRouteImport.update({
@@ -83,34 +73,9 @@ const AuthOrdersIndexRoute = AuthOrdersIndexRouteImport.update({
   path: '/orders/',
   getParentRoute: () => AuthRouteRoute,
 } as any)
-const AuthOnlineStoreIndexRoute = AuthOnlineStoreIndexRouteImport.update({
-  id: '/online-store/',
-  path: '/online-store/',
-  getParentRoute: () => AuthRouteRoute,
-} as any)
-const AuthMarketsIndexRoute = AuthMarketsIndexRouteImport.update({
-  id: '/markets/',
-  path: '/markets/',
-  getParentRoute: () => AuthRouteRoute,
-} as any)
-const AuthMarketingIndexRoute = AuthMarketingIndexRouteImport.update({
-  id: '/marketing/',
-  path: '/marketing/',
-  getParentRoute: () => AuthRouteRoute,
-} as any)
-const AuthDiscountsIndexRoute = AuthDiscountsIndexRouteImport.update({
-  id: '/discounts/',
-  path: '/discounts/',
-  getParentRoute: () => AuthRouteRoute,
-} as any)
 const AuthCustomersIndexRoute = AuthCustomersIndexRouteImport.update({
   id: '/customers/',
   path: '/customers/',
-  getParentRoute: () => AuthRouteRoute,
-} as any)
-const AuthContentIndexRoute = AuthContentIndexRouteImport.update({
-  id: '/content/',
-  path: '/content/',
   getParentRoute: () => AuthRouteRoute,
 } as any)
 const AuthAnalyticsIndexRoute = AuthAnalyticsIndexRouteImport.update({
@@ -123,320 +88,113 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthProductsTransfersRoute = AuthProductsTransfersRouteImport.update({
-  id: '/products/transfers',
-  path: '/products/transfers',
-  getParentRoute: () => AuthRouteRoute,
+const AuthSuppliersNewRoute = AuthSuppliersNewRouteImport.update({
+  id: '/new',
+  path: '/new',
+  getParentRoute: () => AuthSuppliersRouteRoute,
 } as any)
-const AuthProductsPurchaseOrdersRoute =
-  AuthProductsPurchaseOrdersRouteImport.update({
-    id: '/products/purchase-orders',
-    path: '/products/purchase-orders',
-    getParentRoute: () => AuthRouteRoute,
-  } as any)
 const AuthProductsNewRoute = AuthProductsNewRouteImport.update({
   id: '/products/new',
   path: '/products/new',
   getParentRoute: () => AuthRouteRoute,
 } as any)
-const AuthProductsInventoryRoute = AuthProductsInventoryRouteImport.update({
-  id: '/products/inventory',
-  path: '/products/inventory',
-  getParentRoute: () => AuthRouteRoute,
-} as any)
-const AuthProductsGiftCardsRoute = AuthProductsGiftCardsRouteImport.update({
-  id: '/products/gift-cards',
-  path: '/products/gift-cards',
-  getParentRoute: () => AuthRouteRoute,
-} as any)
-const AuthProductsCollectionsRoute = AuthProductsCollectionsRouteImport.update({
-  id: '/products/collections',
-  path: '/products/collections',
-  getParentRoute: () => AuthRouteRoute,
-} as any)
-const AuthProductsIdRoute = AuthProductsIdRouteImport.update({
-  id: '/products/$id',
-  path: '/products/$id',
-  getParentRoute: () => AuthRouteRoute,
-} as any)
-const AuthOrdersDraftsRoute = AuthOrdersDraftsRouteImport.update({
-  id: '/orders/drafts',
-  path: '/orders/drafts',
-  getParentRoute: () => AuthRouteRoute,
-} as any)
-const AuthOrdersAbandonedRoute = AuthOrdersAbandonedRouteImport.update({
-  id: '/orders/abandoned',
-  path: '/orders/abandoned',
-  getParentRoute: () => AuthRouteRoute,
-} as any)
-const AuthOrdersIdRoute = AuthOrdersIdRouteImport.update({
-  id: '/orders/$id',
-  path: '/orders/$id',
-  getParentRoute: () => AuthRouteRoute,
-} as any)
-const AuthMarketingCampaignsRoute = AuthMarketingCampaignsRouteImport.update({
-  id: '/marketing/campaigns',
-  path: '/marketing/campaigns',
-  getParentRoute: () => AuthRouteRoute,
-} as any)
-const AuthMarketingAutomationsRoute =
-  AuthMarketingAutomationsRouteImport.update({
-    id: '/marketing/automations',
-    path: '/marketing/automations',
-    getParentRoute: () => AuthRouteRoute,
-  } as any)
-const AuthCustomersSegmentsRoute = AuthCustomersSegmentsRouteImport.update({
-  id: '/customers/segments',
-  path: '/customers/segments',
-  getParentRoute: () => AuthRouteRoute,
-} as any)
-const AuthCustomersNewRoute = AuthCustomersNewRouteImport.update({
-  id: '/customers/new',
-  path: '/customers/new',
-  getParentRoute: () => AuthRouteRoute,
-} as any)
-const AuthCustomersIdRoute = AuthCustomersIdRouteImport.update({
-  id: '/customers/$id',
-  path: '/customers/$id',
-  getParentRoute: () => AuthRouteRoute,
-} as any)
-const AuthContentMetaobjectsRoute = AuthContentMetaobjectsRouteImport.update({
-  id: '/content/metaobjects',
-  path: '/content/metaobjects',
-  getParentRoute: () => AuthRouteRoute,
-} as any)
-const AuthContentFilesRoute = AuthContentFilesRouteImport.update({
-  id: '/content/files',
-  path: '/content/files',
-  getParentRoute: () => AuthRouteRoute,
-} as any)
-const AuthAnalyticsReportsRoute = AuthAnalyticsReportsRouteImport.update({
-  id: '/analytics/reports',
-  path: '/analytics/reports',
-  getParentRoute: () => AuthRouteRoute,
-} as any)
-const AuthAnalyticsLiveRoute = AuthAnalyticsLiveRouteImport.update({
-  id: '/analytics/live',
-  path: '/analytics/live',
-  getParentRoute: () => AuthRouteRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof AuthIndexRoute
+  '/email-templates': typeof AuthEmailTemplatesRouteRoute
+  '/legal': typeof AuthLegalRouteRoute
+  '/suppliers': typeof AuthSuppliersRouteRouteWithChildren
   '/login': typeof GuestLoginRoute
   '/signup': typeof GuestSignupRoute
-  '/analytics/live': typeof AuthAnalyticsLiveRoute
-  '/analytics/reports': typeof AuthAnalyticsReportsRoute
-  '/content/files': typeof AuthContentFilesRoute
-  '/content/metaobjects': typeof AuthContentMetaobjectsRoute
-  '/customers/$id': typeof AuthCustomersIdRoute
-  '/customers/new': typeof AuthCustomersNewRoute
-  '/customers/segments': typeof AuthCustomersSegmentsRoute
-  '/marketing/automations': typeof AuthMarketingAutomationsRoute
-  '/marketing/campaigns': typeof AuthMarketingCampaignsRoute
-  '/orders/$id': typeof AuthOrdersIdRoute
-  '/orders/abandoned': typeof AuthOrdersAbandonedRoute
-  '/orders/drafts': typeof AuthOrdersDraftsRoute
-  '/products/$id': typeof AuthProductsIdRoute
-  '/products/collections': typeof AuthProductsCollectionsRoute
-  '/products/gift-cards': typeof AuthProductsGiftCardsRoute
-  '/products/inventory': typeof AuthProductsInventoryRoute
   '/products/new': typeof AuthProductsNewRoute
-  '/products/purchase-orders': typeof AuthProductsPurchaseOrdersRoute
-  '/products/transfers': typeof AuthProductsTransfersRoute
+  '/suppliers/new': typeof AuthSuppliersNewRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/analytics/': typeof AuthAnalyticsIndexRoute
-  '/content/': typeof AuthContentIndexRoute
   '/customers/': typeof AuthCustomersIndexRoute
-  '/discounts/': typeof AuthDiscountsIndexRoute
-  '/marketing/': typeof AuthMarketingIndexRoute
-  '/markets/': typeof AuthMarketsIndexRoute
-  '/online-store/': typeof AuthOnlineStoreIndexRoute
   '/orders/': typeof AuthOrdersIndexRoute
   '/products/': typeof AuthProductsIndexRoute
-  '/settings/': typeof AuthSettingsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof AuthIndexRoute
+  '/email-templates': typeof AuthEmailTemplatesRouteRoute
+  '/legal': typeof AuthLegalRouteRoute
+  '/suppliers': typeof AuthSuppliersRouteRouteWithChildren
   '/login': typeof GuestLoginRoute
   '/signup': typeof GuestSignupRoute
-  '/analytics/live': typeof AuthAnalyticsLiveRoute
-  '/analytics/reports': typeof AuthAnalyticsReportsRoute
-  '/content/files': typeof AuthContentFilesRoute
-  '/content/metaobjects': typeof AuthContentMetaobjectsRoute
-  '/customers/$id': typeof AuthCustomersIdRoute
-  '/customers/new': typeof AuthCustomersNewRoute
-  '/customers/segments': typeof AuthCustomersSegmentsRoute
-  '/marketing/automations': typeof AuthMarketingAutomationsRoute
-  '/marketing/campaigns': typeof AuthMarketingCampaignsRoute
-  '/orders/$id': typeof AuthOrdersIdRoute
-  '/orders/abandoned': typeof AuthOrdersAbandonedRoute
-  '/orders/drafts': typeof AuthOrdersDraftsRoute
-  '/products/$id': typeof AuthProductsIdRoute
-  '/products/collections': typeof AuthProductsCollectionsRoute
-  '/products/gift-cards': typeof AuthProductsGiftCardsRoute
-  '/products/inventory': typeof AuthProductsInventoryRoute
   '/products/new': typeof AuthProductsNewRoute
-  '/products/purchase-orders': typeof AuthProductsPurchaseOrdersRoute
-  '/products/transfers': typeof AuthProductsTransfersRoute
+  '/suppliers/new': typeof AuthSuppliersNewRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/analytics': typeof AuthAnalyticsIndexRoute
-  '/content': typeof AuthContentIndexRoute
   '/customers': typeof AuthCustomersIndexRoute
-  '/discounts': typeof AuthDiscountsIndexRoute
-  '/marketing': typeof AuthMarketingIndexRoute
-  '/markets': typeof AuthMarketsIndexRoute
-  '/online-store': typeof AuthOnlineStoreIndexRoute
   '/orders': typeof AuthOrdersIndexRoute
   '/products': typeof AuthProductsIndexRoute
-  '/settings': typeof AuthSettingsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_auth': typeof AuthRouteRouteWithChildren
   '/_guest': typeof GuestRouteRouteWithChildren
+  '/_auth/email-templates': typeof AuthEmailTemplatesRouteRoute
+  '/_auth/legal': typeof AuthLegalRouteRoute
+  '/_auth/suppliers': typeof AuthSuppliersRouteRouteWithChildren
   '/_guest/login': typeof GuestLoginRoute
   '/_guest/signup': typeof GuestSignupRoute
   '/_auth/': typeof AuthIndexRoute
-  '/_auth/analytics/live': typeof AuthAnalyticsLiveRoute
-  '/_auth/analytics/reports': typeof AuthAnalyticsReportsRoute
-  '/_auth/content/files': typeof AuthContentFilesRoute
-  '/_auth/content/metaobjects': typeof AuthContentMetaobjectsRoute
-  '/_auth/customers/$id': typeof AuthCustomersIdRoute
-  '/_auth/customers/new': typeof AuthCustomersNewRoute
-  '/_auth/customers/segments': typeof AuthCustomersSegmentsRoute
-  '/_auth/marketing/automations': typeof AuthMarketingAutomationsRoute
-  '/_auth/marketing/campaigns': typeof AuthMarketingCampaignsRoute
-  '/_auth/orders/$id': typeof AuthOrdersIdRoute
-  '/_auth/orders/abandoned': typeof AuthOrdersAbandonedRoute
-  '/_auth/orders/drafts': typeof AuthOrdersDraftsRoute
-  '/_auth/products/$id': typeof AuthProductsIdRoute
-  '/_auth/products/collections': typeof AuthProductsCollectionsRoute
-  '/_auth/products/gift-cards': typeof AuthProductsGiftCardsRoute
-  '/_auth/products/inventory': typeof AuthProductsInventoryRoute
   '/_auth/products/new': typeof AuthProductsNewRoute
-  '/_auth/products/purchase-orders': typeof AuthProductsPurchaseOrdersRoute
-  '/_auth/products/transfers': typeof AuthProductsTransfersRoute
+  '/_auth/suppliers/new': typeof AuthSuppliersNewRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/_auth/analytics/': typeof AuthAnalyticsIndexRoute
-  '/_auth/content/': typeof AuthContentIndexRoute
   '/_auth/customers/': typeof AuthCustomersIndexRoute
-  '/_auth/discounts/': typeof AuthDiscountsIndexRoute
-  '/_auth/marketing/': typeof AuthMarketingIndexRoute
-  '/_auth/markets/': typeof AuthMarketsIndexRoute
-  '/_auth/online-store/': typeof AuthOnlineStoreIndexRoute
   '/_auth/orders/': typeof AuthOrdersIndexRoute
   '/_auth/products/': typeof AuthProductsIndexRoute
-  '/_auth/settings/': typeof AuthSettingsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/email-templates'
+    | '/legal'
+    | '/suppliers'
     | '/login'
     | '/signup'
-    | '/analytics/live'
-    | '/analytics/reports'
-    | '/content/files'
-    | '/content/metaobjects'
-    | '/customers/$id'
-    | '/customers/new'
-    | '/customers/segments'
-    | '/marketing/automations'
-    | '/marketing/campaigns'
-    | '/orders/$id'
-    | '/orders/abandoned'
-    | '/orders/drafts'
-    | '/products/$id'
-    | '/products/collections'
-    | '/products/gift-cards'
-    | '/products/inventory'
     | '/products/new'
-    | '/products/purchase-orders'
-    | '/products/transfers'
+    | '/suppliers/new'
     | '/api/auth/$'
     | '/analytics/'
-    | '/content/'
     | '/customers/'
-    | '/discounts/'
-    | '/marketing/'
-    | '/markets/'
-    | '/online-store/'
     | '/orders/'
     | '/products/'
-    | '/settings/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/email-templates'
+    | '/legal'
+    | '/suppliers'
     | '/login'
     | '/signup'
-    | '/analytics/live'
-    | '/analytics/reports'
-    | '/content/files'
-    | '/content/metaobjects'
-    | '/customers/$id'
-    | '/customers/new'
-    | '/customers/segments'
-    | '/marketing/automations'
-    | '/marketing/campaigns'
-    | '/orders/$id'
-    | '/orders/abandoned'
-    | '/orders/drafts'
-    | '/products/$id'
-    | '/products/collections'
-    | '/products/gift-cards'
-    | '/products/inventory'
     | '/products/new'
-    | '/products/purchase-orders'
-    | '/products/transfers'
+    | '/suppliers/new'
     | '/api/auth/$'
     | '/analytics'
-    | '/content'
     | '/customers'
-    | '/discounts'
-    | '/marketing'
-    | '/markets'
-    | '/online-store'
     | '/orders'
     | '/products'
-    | '/settings'
   id:
     | '__root__'
     | '/_auth'
     | '/_guest'
+    | '/_auth/email-templates'
+    | '/_auth/legal'
+    | '/_auth/suppliers'
     | '/_guest/login'
     | '/_guest/signup'
     | '/_auth/'
-    | '/_auth/analytics/live'
-    | '/_auth/analytics/reports'
-    | '/_auth/content/files'
-    | '/_auth/content/metaobjects'
-    | '/_auth/customers/$id'
-    | '/_auth/customers/new'
-    | '/_auth/customers/segments'
-    | '/_auth/marketing/automations'
-    | '/_auth/marketing/campaigns'
-    | '/_auth/orders/$id'
-    | '/_auth/orders/abandoned'
-    | '/_auth/orders/drafts'
-    | '/_auth/products/$id'
-    | '/_auth/products/collections'
-    | '/_auth/products/gift-cards'
-    | '/_auth/products/inventory'
     | '/_auth/products/new'
-    | '/_auth/products/purchase-orders'
-    | '/_auth/products/transfers'
+    | '/_auth/suppliers/new'
     | '/api/auth/$'
     | '/_auth/analytics/'
-    | '/_auth/content/'
     | '/_auth/customers/'
-    | '/_auth/discounts/'
-    | '/_auth/marketing/'
-    | '/_auth/markets/'
-    | '/_auth/online-store/'
     | '/_auth/orders/'
     | '/_auth/products/'
-    | '/_auth/settings/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -482,11 +240,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuestLoginRouteImport
       parentRoute: typeof GuestRouteRoute
     }
-    '/_auth/settings/': {
-      id: '/_auth/settings/'
-      path: '/settings'
-      fullPath: '/settings/'
-      preLoaderRoute: typeof AuthSettingsIndexRouteImport
+    '/_auth/suppliers': {
+      id: '/_auth/suppliers'
+      path: '/suppliers'
+      fullPath: '/suppliers'
+      preLoaderRoute: typeof AuthSuppliersRouteRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
+    '/_auth/legal': {
+      id: '/_auth/legal'
+      path: '/legal'
+      fullPath: '/legal'
+      preLoaderRoute: typeof AuthLegalRouteRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
+    '/_auth/email-templates': {
+      id: '/_auth/email-templates'
+      path: '/email-templates'
+      fullPath: '/email-templates'
+      preLoaderRoute: typeof AuthEmailTemplatesRouteRouteImport
       parentRoute: typeof AuthRouteRoute
     }
     '/_auth/products/': {
@@ -503,46 +275,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthOrdersIndexRouteImport
       parentRoute: typeof AuthRouteRoute
     }
-    '/_auth/online-store/': {
-      id: '/_auth/online-store/'
-      path: '/online-store'
-      fullPath: '/online-store/'
-      preLoaderRoute: typeof AuthOnlineStoreIndexRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
-    '/_auth/markets/': {
-      id: '/_auth/markets/'
-      path: '/markets'
-      fullPath: '/markets/'
-      preLoaderRoute: typeof AuthMarketsIndexRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
-    '/_auth/marketing/': {
-      id: '/_auth/marketing/'
-      path: '/marketing'
-      fullPath: '/marketing/'
-      preLoaderRoute: typeof AuthMarketingIndexRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
-    '/_auth/discounts/': {
-      id: '/_auth/discounts/'
-      path: '/discounts'
-      fullPath: '/discounts/'
-      preLoaderRoute: typeof AuthDiscountsIndexRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
     '/_auth/customers/': {
       id: '/_auth/customers/'
       path: '/customers'
       fullPath: '/customers/'
       preLoaderRoute: typeof AuthCustomersIndexRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
-    '/_auth/content/': {
-      id: '/_auth/content/'
-      path: '/content'
-      fullPath: '/content/'
-      preLoaderRoute: typeof AuthContentIndexRouteImport
       parentRoute: typeof AuthRouteRoute
     }
     '/_auth/analytics/': {
@@ -559,19 +296,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAuthSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_auth/products/transfers': {
-      id: '/_auth/products/transfers'
-      path: '/products/transfers'
-      fullPath: '/products/transfers'
-      preLoaderRoute: typeof AuthProductsTransfersRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
-    '/_auth/products/purchase-orders': {
-      id: '/_auth/products/purchase-orders'
-      path: '/products/purchase-orders'
-      fullPath: '/products/purchase-orders'
-      preLoaderRoute: typeof AuthProductsPurchaseOrdersRouteImport
-      parentRoute: typeof AuthRouteRoute
+    '/_auth/suppliers/new': {
+      id: '/_auth/suppliers/new'
+      path: '/new'
+      fullPath: '/suppliers/new'
+      preLoaderRoute: typeof AuthSuppliersNewRouteImport
+      parentRoute: typeof AuthSuppliersRouteRoute
     }
     '/_auth/products/new': {
       id: '/_auth/products/new'
@@ -580,185 +310,42 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthProductsNewRouteImport
       parentRoute: typeof AuthRouteRoute
     }
-    '/_auth/products/inventory': {
-      id: '/_auth/products/inventory'
-      path: '/products/inventory'
-      fullPath: '/products/inventory'
-      preLoaderRoute: typeof AuthProductsInventoryRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
-    '/_auth/products/gift-cards': {
-      id: '/_auth/products/gift-cards'
-      path: '/products/gift-cards'
-      fullPath: '/products/gift-cards'
-      preLoaderRoute: typeof AuthProductsGiftCardsRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
-    '/_auth/products/collections': {
-      id: '/_auth/products/collections'
-      path: '/products/collections'
-      fullPath: '/products/collections'
-      preLoaderRoute: typeof AuthProductsCollectionsRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
-    '/_auth/products/$id': {
-      id: '/_auth/products/$id'
-      path: '/products/$id'
-      fullPath: '/products/$id'
-      preLoaderRoute: typeof AuthProductsIdRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
-    '/_auth/orders/drafts': {
-      id: '/_auth/orders/drafts'
-      path: '/orders/drafts'
-      fullPath: '/orders/drafts'
-      preLoaderRoute: typeof AuthOrdersDraftsRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
-    '/_auth/orders/abandoned': {
-      id: '/_auth/orders/abandoned'
-      path: '/orders/abandoned'
-      fullPath: '/orders/abandoned'
-      preLoaderRoute: typeof AuthOrdersAbandonedRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
-    '/_auth/orders/$id': {
-      id: '/_auth/orders/$id'
-      path: '/orders/$id'
-      fullPath: '/orders/$id'
-      preLoaderRoute: typeof AuthOrdersIdRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
-    '/_auth/marketing/campaigns': {
-      id: '/_auth/marketing/campaigns'
-      path: '/marketing/campaigns'
-      fullPath: '/marketing/campaigns'
-      preLoaderRoute: typeof AuthMarketingCampaignsRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
-    '/_auth/marketing/automations': {
-      id: '/_auth/marketing/automations'
-      path: '/marketing/automations'
-      fullPath: '/marketing/automations'
-      preLoaderRoute: typeof AuthMarketingAutomationsRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
-    '/_auth/customers/segments': {
-      id: '/_auth/customers/segments'
-      path: '/customers/segments'
-      fullPath: '/customers/segments'
-      preLoaderRoute: typeof AuthCustomersSegmentsRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
-    '/_auth/customers/new': {
-      id: '/_auth/customers/new'
-      path: '/customers/new'
-      fullPath: '/customers/new'
-      preLoaderRoute: typeof AuthCustomersNewRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
-    '/_auth/customers/$id': {
-      id: '/_auth/customers/$id'
-      path: '/customers/$id'
-      fullPath: '/customers/$id'
-      preLoaderRoute: typeof AuthCustomersIdRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
-    '/_auth/content/metaobjects': {
-      id: '/_auth/content/metaobjects'
-      path: '/content/metaobjects'
-      fullPath: '/content/metaobjects'
-      preLoaderRoute: typeof AuthContentMetaobjectsRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
-    '/_auth/content/files': {
-      id: '/_auth/content/files'
-      path: '/content/files'
-      fullPath: '/content/files'
-      preLoaderRoute: typeof AuthContentFilesRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
-    '/_auth/analytics/reports': {
-      id: '/_auth/analytics/reports'
-      path: '/analytics/reports'
-      fullPath: '/analytics/reports'
-      preLoaderRoute: typeof AuthAnalyticsReportsRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
-    '/_auth/analytics/live': {
-      id: '/_auth/analytics/live'
-      path: '/analytics/live'
-      fullPath: '/analytics/live'
-      preLoaderRoute: typeof AuthAnalyticsLiveRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
   }
 }
 
+interface AuthSuppliersRouteRouteChildren {
+  AuthSuppliersNewRoute: typeof AuthSuppliersNewRoute
+}
+
+const AuthSuppliersRouteRouteChildren: AuthSuppliersRouteRouteChildren = {
+  AuthSuppliersNewRoute: AuthSuppliersNewRoute,
+}
+
+const AuthSuppliersRouteRouteWithChildren =
+  AuthSuppliersRouteRoute._addFileChildren(AuthSuppliersRouteRouteChildren)
+
 interface AuthRouteRouteChildren {
+  AuthEmailTemplatesRouteRoute: typeof AuthEmailTemplatesRouteRoute
+  AuthLegalRouteRoute: typeof AuthLegalRouteRoute
+  AuthSuppliersRouteRoute: typeof AuthSuppliersRouteRouteWithChildren
   AuthIndexRoute: typeof AuthIndexRoute
-  AuthAnalyticsLiveRoute: typeof AuthAnalyticsLiveRoute
-  AuthAnalyticsReportsRoute: typeof AuthAnalyticsReportsRoute
-  AuthContentFilesRoute: typeof AuthContentFilesRoute
-  AuthContentMetaobjectsRoute: typeof AuthContentMetaobjectsRoute
-  AuthCustomersIdRoute: typeof AuthCustomersIdRoute
-  AuthCustomersNewRoute: typeof AuthCustomersNewRoute
-  AuthCustomersSegmentsRoute: typeof AuthCustomersSegmentsRoute
-  AuthMarketingAutomationsRoute: typeof AuthMarketingAutomationsRoute
-  AuthMarketingCampaignsRoute: typeof AuthMarketingCampaignsRoute
-  AuthOrdersIdRoute: typeof AuthOrdersIdRoute
-  AuthOrdersAbandonedRoute: typeof AuthOrdersAbandonedRoute
-  AuthOrdersDraftsRoute: typeof AuthOrdersDraftsRoute
-  AuthProductsIdRoute: typeof AuthProductsIdRoute
-  AuthProductsCollectionsRoute: typeof AuthProductsCollectionsRoute
-  AuthProductsGiftCardsRoute: typeof AuthProductsGiftCardsRoute
-  AuthProductsInventoryRoute: typeof AuthProductsInventoryRoute
   AuthProductsNewRoute: typeof AuthProductsNewRoute
-  AuthProductsPurchaseOrdersRoute: typeof AuthProductsPurchaseOrdersRoute
-  AuthProductsTransfersRoute: typeof AuthProductsTransfersRoute
   AuthAnalyticsIndexRoute: typeof AuthAnalyticsIndexRoute
-  AuthContentIndexRoute: typeof AuthContentIndexRoute
   AuthCustomersIndexRoute: typeof AuthCustomersIndexRoute
-  AuthDiscountsIndexRoute: typeof AuthDiscountsIndexRoute
-  AuthMarketingIndexRoute: typeof AuthMarketingIndexRoute
-  AuthMarketsIndexRoute: typeof AuthMarketsIndexRoute
-  AuthOnlineStoreIndexRoute: typeof AuthOnlineStoreIndexRoute
   AuthOrdersIndexRoute: typeof AuthOrdersIndexRoute
   AuthProductsIndexRoute: typeof AuthProductsIndexRoute
-  AuthSettingsIndexRoute: typeof AuthSettingsIndexRoute
 }
 
 const AuthRouteRouteChildren: AuthRouteRouteChildren = {
+  AuthEmailTemplatesRouteRoute: AuthEmailTemplatesRouteRoute,
+  AuthLegalRouteRoute: AuthLegalRouteRoute,
+  AuthSuppliersRouteRoute: AuthSuppliersRouteRouteWithChildren,
   AuthIndexRoute: AuthIndexRoute,
-  AuthAnalyticsLiveRoute: AuthAnalyticsLiveRoute,
-  AuthAnalyticsReportsRoute: AuthAnalyticsReportsRoute,
-  AuthContentFilesRoute: AuthContentFilesRoute,
-  AuthContentMetaobjectsRoute: AuthContentMetaobjectsRoute,
-  AuthCustomersIdRoute: AuthCustomersIdRoute,
-  AuthCustomersNewRoute: AuthCustomersNewRoute,
-  AuthCustomersSegmentsRoute: AuthCustomersSegmentsRoute,
-  AuthMarketingAutomationsRoute: AuthMarketingAutomationsRoute,
-  AuthMarketingCampaignsRoute: AuthMarketingCampaignsRoute,
-  AuthOrdersIdRoute: AuthOrdersIdRoute,
-  AuthOrdersAbandonedRoute: AuthOrdersAbandonedRoute,
-  AuthOrdersDraftsRoute: AuthOrdersDraftsRoute,
-  AuthProductsIdRoute: AuthProductsIdRoute,
-  AuthProductsCollectionsRoute: AuthProductsCollectionsRoute,
-  AuthProductsGiftCardsRoute: AuthProductsGiftCardsRoute,
-  AuthProductsInventoryRoute: AuthProductsInventoryRoute,
   AuthProductsNewRoute: AuthProductsNewRoute,
-  AuthProductsPurchaseOrdersRoute: AuthProductsPurchaseOrdersRoute,
-  AuthProductsTransfersRoute: AuthProductsTransfersRoute,
   AuthAnalyticsIndexRoute: AuthAnalyticsIndexRoute,
-  AuthContentIndexRoute: AuthContentIndexRoute,
   AuthCustomersIndexRoute: AuthCustomersIndexRoute,
-  AuthDiscountsIndexRoute: AuthDiscountsIndexRoute,
-  AuthMarketingIndexRoute: AuthMarketingIndexRoute,
-  AuthMarketsIndexRoute: AuthMarketsIndexRoute,
-  AuthOnlineStoreIndexRoute: AuthOnlineStoreIndexRoute,
   AuthOrdersIndexRoute: AuthOrdersIndexRoute,
   AuthProductsIndexRoute: AuthProductsIndexRoute,
-  AuthSettingsIndexRoute: AuthSettingsIndexRoute,
 }
 
 const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(

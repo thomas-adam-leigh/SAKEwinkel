@@ -1,10 +1,11 @@
+import { Link } from "@tanstack/react-router";
 import { Bell, ChevronDown, Search } from "lucide-react";
 
 export function TopBar() {
   return (
     <header className="bg-bg-topbar fixed top-0 right-0 left-0 z-50 grid h-[56px] grid-cols-[1fr_auto_1fr] items-center px-5">
       {/* Left: Logo */}
-      <div className="flex items-center gap-2">
+      <Link to="/" className="flex items-center gap-2">
         <svg
           width="21"
           height="24"
@@ -26,7 +27,7 @@ export function TopBar() {
         <span className="text-text-on-dark text-[14px] font-semibold tracking-tight">
           SAKEwinkel
         </span>
-      </div>
+      </Link>
 
       {/* Center: Search placeholder */}
       <div className="bg-bg-search flex h-[36px] max-w-[580px] min-w-[400px] cursor-pointer items-center gap-2 rounded-[12px] px-3">
