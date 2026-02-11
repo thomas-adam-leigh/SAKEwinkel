@@ -31,19 +31,14 @@ export function Sidebar() {
           <NavItem icon={FileBarChart} label="Reports" comingSoon disabled />
         </NavSection>
 
-        <NavSection label="Growth">
-          <NavItem icon={Megaphone} label="Marketing" comingSoon disabled />
-          <NavItem icon={FileText} label="Content" comingSoon disabled />
-        </NavSection>
-
         <NavSection label="Configuration">
           <NavItem icon={Scale} label="Legal" to="/legal" />
           <NavItem icon={Mail} label="Email Templates" to="/email-templates" />
         </NavSection>
 
         <NavSection label="Admin">
-          <NavItem icon={UserCog} label="Team" comingSoon disabled />
-          <NavItem icon={ClipboardList} label="Audit Log" comingSoon disabled />
+          <NavItem icon={UserCog} label="Team" disabled />
+          <NavItem icon={ClipboardList} label="Audit Log" disabled />
         </NavSection>
       </nav>
     </aside>

@@ -1,7 +1,7 @@
 ## Requirements
 
 ### Requirement: Primary navigation routes
-The app SHALL define file-based routes for all primary navigation destinations, each rendering a placeholder page.
+The app SHALL define file-based routes for all primary navigation destinations, each rendering a fully implemented page.
 
 | Sidebar Label | Route | H1 Title |
 |---|---|---|
@@ -23,9 +23,9 @@ The app SHALL define file-based routes for all primary navigation destinations, 
 - **WHEN** the user navigates to `/`
 - **THEN** the main content area displays the Home page
 
-#### Scenario: Suppliers route renders
+#### Scenario: Suppliers route renders full listing page
 - **WHEN** the user navigates to `/suppliers`
-- **THEN** the main content area displays an H1 with text "Suppliers"
+- **THEN** the main content area displays the suppliers listing page with header, tabs, search, and data table
 
 #### Scenario: Legal route renders
 - **WHEN** the user navigates to `/legal`
@@ -40,7 +40,7 @@ The app SHALL define file-based routes for all primary navigation destinations, 
 - **THEN** the main content area displays an H1 with text "Reports"
 
 ### Requirement: Detail and create routes
-The app SHALL define routes for create pages.
+The app SHALL define routes for detail and create pages.
 
 | Page | Route | H1 Title |
 |---|---|---|
@@ -53,7 +53,7 @@ The app SHALL define routes for create pages.
 
 #### Scenario: New supplier route
 - **WHEN** the user navigates to `/suppliers/new`
-- **THEN** the main content area displays an H1 with text "Add supplier"
+- **THEN** the main content area displays the Add supplier form with two-column layout, company details, contact person, address, legal, status, and communication cards
 
 ### Requirement: All routes are authenticated
 All admin routes SHALL be nested under the `_auth` layout route, which redirects unauthenticated users to the login page.

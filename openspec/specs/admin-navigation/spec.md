@@ -20,6 +20,10 @@ The primary nav items SHALL be:
 - **WHEN** the sidebar renders
 - **THEN** each nav item (Home, Orders, Products, Suppliers, Customers, Analytics, Reports, Marketing, Content, Legal, Email Templates) displays its icon and label with the specified styling
 
+#### Scenario: Suppliers nav item navigates to suppliers page
+- **WHEN** the user clicks the "Suppliers" nav item
+- **THEN** the browser navigates to `/suppliers` and the Suppliers nav item shows active state background `rgba(0,0,0,0.08)`
+
 ### Requirement: Nav item hover state
 A navigable nav item SHALL show background `rgba(0,0,0,0.05)` on hover. Non-navigable items (Marketing, Content) SHALL NOT show hover background.
 

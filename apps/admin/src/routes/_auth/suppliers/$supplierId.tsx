@@ -8,8 +8,8 @@ import { CompanyDetailsCard } from "@/components/admin/suppliers/company-details
 import { ContactPersonCard } from "@/components/admin/suppliers/contact-person-card";
 import { BusinessAddressCard } from "@/components/admin/suppliers/business-address-card";
 import { LegalComplianceCard } from "@/components/admin/suppliers/legal-compliance-card";
+import { BankingDetailsCard } from "@/components/admin/suppliers/banking-details-card";
 import { SupplierStatusCard } from "@/components/admin/suppliers/supplier-status-card";
-import { CommunicationCard } from "@/components/admin/suppliers/communication-card";
 import type { Supplier } from "@/types/supplier";
 import suppliersData from "@/data/suppliers.json";
 
@@ -19,7 +19,7 @@ export const Route = createFileRoute("/_auth/suppliers/$supplierId")({
 
 function EditSupplierPage() {
   const { supplierId } = Route.useParams();
-  const supplier = (suppliersData as Supplier[]).find(
+  const supplier = (suppliersData as unknown as Supplier[]).find(
     (s) => s.id === supplierId,
   );
 
@@ -57,7 +57,7 @@ function EditSupplierPage() {
         message="Unsaved supplier"
       />
 
-      <PageHeader title={supplier.companyName} />
+      <PageHeader title={supplier.tradingName} />
 
       <NewProductLayout
         left={
@@ -65,13 +65,17 @@ function EditSupplierPage() {
             <CompanyDetailsCard
               onFieldChange={markDirty}
               defaultValues={{
-                companyName: supplier.companyName,
+                legalName: supplier.legalName,
                 tradingName: supplier.tradingName,
+                businessType: supplier.businessType,
+                shortDescription: supplier.shortDescription,
+                websiteUrl: supplier.websiteUrl,
               }}
             />
             <ContactPersonCard
               onFieldChange={markDirty}
-              defaultValues={supplier.contact}
+              defaultValues={supplier.primaryContact}
+              additionalContacts={supplier.additionalContacts}
             />
             <BusinessAddressCard
               onFieldChange={markDirty}
@@ -79,7 +83,16 @@ function EditSupplierPage() {
             />
             <LegalComplianceCard
               onFieldChange={markDirty}
-              defaultValues={supplier.legal}
+              defaultValues={{
+                identificationType: supplier.identificationType,
+                identificationNumber: supplier.identificationNumber,
+                isVatRegistered: supplier.vatRegistration.isRegistered,
+                vatNumber: supplier.vatRegistration.vatNumber,
+              }}
+            />
+            <BankingDetailsCard
+              onFieldChange={markDirty}
+              defaultValues={supplier.banking}
             />
           </>
         }
@@ -87,11 +100,7 @@ function EditSupplierPage() {
           <>
             <SupplierStatusCard
               onFieldChange={markDirty}
-              defaultValue={supplier.status}
-            />
-            <CommunicationCard
-              onFieldChange={markDirty}
-              defaultValues={supplier.communication}
+              defaultValue={supplier.isActive ? "Active" : "Inactive"}
             />
           </>
         }

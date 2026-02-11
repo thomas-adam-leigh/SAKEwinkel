@@ -15,10 +15,11 @@ export function StatusCard({ onFieldChange }: StatusCardProps) {
       <div className="p-4">
         <AdminSelect
           options={[
-            { value: "active", label: "Active" },
             { value: "draft", label: "Draft" },
+            { value: "unlisted", label: "Unlisted" },
+            { value: "active", label: "Active" },
           ]}
-          defaultValue="active"
+          defaultValue="draft"
           onChange={onFieldChange}
         />
       </div>

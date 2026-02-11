@@ -8,23 +8,22 @@ interface BusinessAddressCardProps {
   readonly onFieldChange: () => void;
   readonly defaultValues?: {
     street?: string;
-    street2?: string;
-    city?: string;
+    town?: string;
     province?: string;
-    postalCode?: string;
-    country?: string;
+    magisterialDistrict?: string;
   };
 }
 
-const countryOptions = [
-  { value: "South Africa", label: "South Africa" },
-  { value: "Japan", label: "Japan" },
-  { value: "United States", label: "United States" },
-  { value: "United Kingdom", label: "United Kingdom" },
-  { value: "Australia", label: "Australia" },
-  { value: "Netherlands", label: "Netherlands" },
-  { value: "Germany", label: "Germany" },
-  { value: "France", label: "France" },
+const provinceOptions = [
+  { value: "Eastern Cape", label: "Eastern Cape" },
+  { value: "Free State", label: "Free State" },
+  { value: "Gauteng", label: "Gauteng" },
+  { value: "KwaZulu-Natal", label: "KwaZulu-Natal" },
+  { value: "Limpopo", label: "Limpopo" },
+  { value: "Mpumalanga", label: "Mpumalanga" },
+  { value: "North West", label: "North West" },
+  { value: "Northern Cape", label: "Northern Cape" },
+  { value: "Western Cape", label: "Western Cape" },
 ];
 
 export function BusinessAddressCard({
@@ -42,33 +41,23 @@ export function BusinessAddressCard({
             <FieldLabel>Street address</FieldLabel>
             <AdminInput defaultValue={defaultValues?.street} onChange={onFieldChange} />
           </div>
-          <div>
-            <FieldLabel>Apartment, suite, etc.</FieldLabel>
-            <AdminInput defaultValue={defaultValues?.street2} onChange={onFieldChange} />
-          </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <FieldLabel>City</FieldLabel>
-              <AdminInput defaultValue={defaultValues?.city} onChange={onFieldChange} />
+              <FieldLabel>Town / City</FieldLabel>
+              <AdminInput defaultValue={defaultValues?.town} onChange={onFieldChange} />
             </div>
             <div>
               <FieldLabel>Province</FieldLabel>
-              <AdminInput defaultValue={defaultValues?.province} onChange={onFieldChange} />
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-3">
-            <div>
-              <FieldLabel>Postal code</FieldLabel>
-              <AdminInput defaultValue={defaultValues?.postalCode} onChange={onFieldChange} />
-            </div>
-            <div>
-              <FieldLabel>Country</FieldLabel>
               <AdminSelect
-                options={countryOptions}
-                defaultValue={defaultValues?.country ?? "South Africa"}
+                options={provinceOptions}
+                defaultValue={defaultValues?.province ?? "Western Cape"}
                 onChange={onFieldChange}
               />
             </div>
+          </div>
+          <div>
+            <FieldLabel>Magisterial district</FieldLabel>
+            <AdminInput defaultValue={defaultValues?.magisterialDistrict} onChange={onFieldChange} />
           </div>
         </div>
       </div>

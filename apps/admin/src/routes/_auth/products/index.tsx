@@ -7,7 +7,10 @@ import { PageHeader } from "@/components/admin/page-header";
 import { ProductsTabBar } from "@/components/admin/products/products-tab-bar";
 import { ProductsSearchBar } from "@/components/admin/products/products-search-bar";
 import { ProductsDataTable } from "@/components/admin/products/products-data-table";
+import type { Product } from "@/types/product";
+import type { Supplier } from "@/types/supplier";
 import productsData from "@/data/products.json";
+import suppliersData from "@/data/suppliers.json";
 
 export const Route = createFileRoute("/_auth/products/")({
   component: ProductsPage,
@@ -18,39 +21,45 @@ function ProductsPage() {
   const [searchValue, setSearchValue] = useState("");
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
 
+  const products = productsData as unknown as Product[];
+  const suppliers = suppliersData as unknown as Supplier[];
+  const supplierMap = new Map(suppliers.map((s) => [s.id, s]));
+
   const tabCounts = useMemo(
     () => ({
-      all: productsData.length,
-      active: productsData.filter((p) => p.status === "Active").length,
-      draft: productsData.filter((p) => p.status === "Draft").length,
-      archived: productsData.filter((p) => p.status === "Archived").length,
+      all: products.length,
+      active: products.filter((p) => p.status === "Active").length,
+      unlisted: products.filter((p) => p.status === "Unlisted").length,
+      draft: products.filter((p) => p.status === "Draft").length,
     }),
-    [],
+    [products],
   );
 
   const filteredProducts = useMemo(() => {
-    let result = productsData;
+    let result = products;
 
     if (activeTab !== "all") {
       const statusMap: Record<string, string> = {
         active: "Active",
+        unlisted: "Unlisted",
         draft: "Draft",
-        archived: "Archived",
       };
       result = result.filter((p) => p.status === statusMap[activeTab]);
     }
 
     if (searchValue.trim()) {
       const query = searchValue.toLowerCase();
-      result = result.filter(
-        (p) =>
-          p.title.toLowerCase().includes(query) ||
-          p.category.toLowerCase().includes(query),
-      );
+      result = result.filter((p) => {
+        const supplier = supplierMap.get(p.supplierId);
+        return (
+          p.name.toLowerCase().includes(query) ||
+          (supplier?.tradingName.toLowerCase().includes(query) ?? false)
+        );
+      });
     }
 
     return result;
-  }, [activeTab, searchValue]);
+  }, [products, activeTab, searchValue, supplierMap]);
 
   function handleTabChange(tab: string) {
     setActiveTab(tab);
@@ -85,6 +94,7 @@ function ProductsPage() {
         </div>
         <ProductsDataTable
           products={filteredProducts}
+          suppliers={suppliers}
           selectedIds={selectedIds}
           onSelectionChange={setSelectedIds}
         />

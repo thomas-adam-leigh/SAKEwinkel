@@ -11,12 +11,11 @@ interface SupplierStatusCardProps {
 const statusOptions = [
   { value: "Active", label: "Active" },
   { value: "Inactive", label: "Inactive" },
-  { value: "Pending", label: "Pending" },
 ];
 
 export function SupplierStatusCard({
   onFieldChange,
-  defaultValue = "Pending",
+  defaultValue = "Active",
 }: SupplierStatusCardProps) {
   return (
     <AdminCard>

@@ -8,7 +8,7 @@ Form field labels SHALL use font-size 13px, font-weight 450, color `#303030`, li
 - **THEN** it displays at 13px, font-weight 450, color `#303030`, with 4px bottom margin
 
 ### Requirement: Price input with currency prefix
-The price input SHALL be a text input wrapper containing a "R " currency prefix on the left (font-size 13px, font-weight 450, color `#303030`, padding-left 12px) and a number input field. The wrapper SHALL match standard input styling (border `1px solid #8a8a8a`, border-radius 8px, background `#fdfdfd`, height 32px). The inner input SHALL have no left padding (the prefix occupies that space).
+The price input SHALL be a text input wrapper containing a "R " currency prefix on the left (font-size 13px, font-weight 450, color `#303030`, padding-left 12px) and a number input field. The wrapper SHALL match standard input styling (border `1px solid #8a8a8a`, border-radius 8px, background `#fdfdfd`, height 32px). The inner input SHALL have no left padding (the prefix occupies that space). The primary field is labeled "Original price" and the secondary field is labeled "Sale price".
 
 #### Scenario: Price input renders with R prefix
 - **WHEN** a price input is rendered
@@ -17,6 +17,41 @@ The price input SHALL be a text input wrapper containing a "R " currency prefix 
 #### Scenario: Price input accepts numeric values
 - **WHEN** the user types "199.99" into the price input
 - **THEN** the value "199.99" is displayed after the "R " prefix
+
+### Requirement: Product type selector field
+A radio-button or segmented-control field for choosing between Physical, Voucher, and Clickthrough.
+
+#### Scenario: Product type field rendering
+- **WHEN** the ProductTypeCard is rendered
+- **THEN** it shows three selectable options with icons/labels: Physical (box icon), Voucher (ticket icon), Clickthrough (external-link icon)
+
+### Requirement: URL input field
+A text input specialized for URLs, used by the Clickthrough card.
+
+#### Scenario: URL input with validation hint
+- **WHEN** the ClickthroughCard renders the redirect URL field
+- **THEN** it shows a text input with placeholder "https://supplier-store.co.za" and helper text "Customer will be redirected to this URL"
+
+### Requirement: CTA text input field
+A text input for the call-to-action button text on clickthrough products.
+
+#### Scenario: CTA text field
+- **WHEN** the ClickthroughCard renders the CTA field
+- **THEN** it shows a text input with placeholder "Shop Now" and helper text "Text displayed on the product page button"
+
+### Requirement: Date picker fields
+Date picker inputs for product scheduling (start and end dates).
+
+#### Scenario: Date picker rendering
+- **WHEN** the SchedulingCard renders
+- **THEN** it shows two date inputs: "Start date" and "End date" using native date inputs
+
+### Requirement: Voucher-specific text fields
+Text inputs for voucher code prefix, expiry text, and offer text.
+
+#### Scenario: Voucher fields rendering
+- **WHEN** the VoucherDetailsCard renders
+- **THEN** it shows: "Voucher code prefix" (text, placeholder "SAKE-"), "Expiry" (text, placeholder "Valid until 31 December 2026"), "Offer description" (text, placeholder "50% Afslag"), "Optional headline" (text, placeholder "50% Afslagsbewys")
 
 ### Requirement: Combobox autocomplete field
 The combobox field SHALL have the same border, radius, background, and height as a standard text input. It SHALL display a dropdown chevron icon on the right side. Placeholder text SHALL use the muted color (`#8a8a8a`).
@@ -48,11 +83,11 @@ The toggle switch SHALL be 36px wide, 20px tall, with border-radius 9999px (full
 - **THEN** the background changes to `#b5b5b5` and the knob slides smoothly to the left
 
 ### Requirement: Checkbox
-The checkbox SHALL be 16×16px with border `1px solid #8a8a8a` and border-radius 4px. When checked, the background SHALL be `#303030` with a white checkmark icon.
+The checkbox SHALL be 16x16px with border `1px solid #8a8a8a` and border-radius 4px. When checked, the background SHALL be `#303030` with a white checkmark icon.
 
 #### Scenario: Checkbox renders in unchecked state
 - **WHEN** a checkbox is rendered unchecked
-- **THEN** it displays as a 16×16px box with gray border and no fill
+- **THEN** it displays as a 16x16px box with gray border and no fill
 
 #### Scenario: Checkbox renders in checked state
 - **WHEN** a checkbox is clicked to check
@@ -73,7 +108,7 @@ The spinbutton SHALL be a number input with increment/decrement controls. It SHA
 Expandable option buttons SHALL have transparent background, color `#303030`, font-size 13px, font-weight 400, padding `4px 8px`, border-radius 8px, height 28px, and no border. Each button SHALL display a "+" icon. On hover, the background SHALL change to `rgba(0,0,0,0.05)`. Buttons SHALL be arranged horizontally in a flex-wrap row. When clicked, the button SHALL disappear and the corresponding form field SHALL be revealed.
 
 #### Scenario: Expandable option button renders with plus icon
-- **WHEN** an expandable option button is rendered (e.g., "Compare at")
+- **WHEN** an expandable option button is rendered (e.g., "Cost per item")
 - **THEN** it displays as a transparent button with "+" icon and the label text
 
 #### Scenario: Expandable option button hover state
@@ -92,22 +127,11 @@ Helper/description text below form fields SHALL use font-size 12px, font-weight 
 - **THEN** it displays below the field at 12px, color `#616161`, with 4px top margin
 
 ### Requirement: Media drop zone
-The media drop zone SHALL display a dashed-border area with border `1px dashed #c0c0c0`, border-radius 8px, padding 16px, centered text, and background `#f7f7f7`. It SHALL contain "Upload new" and "Select existing" buttons and the helper text "Accepts images, videos, or 3D models". The drop zone is visual only — no upload functionality.
+The media drop zone SHALL display a dashed-border area with border `1px dashed #c0c0c0`, border-radius 8px, padding 16px, centered text, and background `#f7f7f7`. It SHALL contain "Upload new" and "Select existing" buttons and the helper text "Accepts images, videos, or 3D models". The drop zone is visual only -- no upload functionality.
 
 #### Scenario: Media drop zone renders with upload buttons
 - **WHEN** the media drop zone is rendered
 - **THEN** a dashed-border area is displayed with "Upload new" and "Select existing" buttons and helper text
-
-### Requirement: Channel pill/chip
-Channel pills SHALL be inline-flex elements with padding `4px 8px`, border-radius 8px, font-size 13px, and background `#f1f1f1`. Each pill SHALL include an "x" remove button. Clicking the "x" SHALL remove the pill from the display.
-
-#### Scenario: Channel pill renders with remove button
-- **WHEN** a channel pill is rendered (e.g., "Online Store")
-- **THEN** it displays as a rounded chip with the channel name and an "x" icon
-
-#### Scenario: Channel pill removed on x click
-- **WHEN** the user clicks the "x" on a channel pill
-- **THEN** the pill is removed from the display
 
 ### Requirement: Quantity table styling
 The quantity table header row SHALL use font-size 12px, font-weight 550, color `#616161`, padding `8px 0`, and border-bottom `1px solid #e3e3e3`. Table data rows SHALL use font-size 13px, color `#303030`, padding `8px 0`, with `display: flex; justify-content: space-between; align-items: center`.

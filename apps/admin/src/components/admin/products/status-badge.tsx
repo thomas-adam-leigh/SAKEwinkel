@@ -2,8 +2,8 @@ import { StatusBadge, type StatusTone } from "@/components/admin/status-badge";
 
 const statusTone: Record<string, StatusTone> = {
   Active: "success",
+  Unlisted: "warning",
   Draft: "neutral",
-  Archived: "subdued",
 };
 
 interface ProductStatusBadgeProps {

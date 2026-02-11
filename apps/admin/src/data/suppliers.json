@@ -1,233 +1,241 @@
 [
   {
-    "id": "cm5qr8k2x0001mk9gf7h3j5np",
-    "companyName": "Asahi Shuzo Co., Ltd.",
-    "tradingName": "Dassai",
-    "status": "Active",
-    "contact": {
-      "firstName": "Kazuhiro",
-      "lastName": "Sakurai",
-      "role": "Export Manager",
-      "email": "k.sakurai@asahishuzo.co.jp",
-      "phone": "+81 827-86-0120"
+    "id": "sup-001",
+    "legalName": "Boot & Rally Leather Co. (Pty) Ltd",
+    "tradingName": "Boot & Rally",
+    "businessType": "Private Company",
+    "identificationType": "Company Registration",
+    "identificationNumber": "2018/294715/07",
+    "vatRegistration": {
+      "isRegistered": true,
+      "vatNumber": "4120398457"
     },
+    "primaryContact": {
+      "firstName": "Mariska",
+      "surname": "du Plessis",
+      "phone": "+27 21 876 3401",
+      "email": "mariska@bootandrally.co.za",
+      "role": "Owner"
+    },
+    "additionalContacts": [
+      {
+        "firstName": "Henk",
+        "surname": "Viljoen",
+        "phone": "+27 82 445 1120",
+        "email": "henk@bootandrally.co.za",
+        "role": "Production Manager"
+      }
+    ],
     "address": {
-      "street": "2167-4 Shuto",
-      "city": "Iwakuni",
-      "province": "Yamaguchi",
-      "postalCode": "742-0422",
-      "country": "Japan"
-    },
-    "legal": {
-      "registrationNumber": "JP-3200-01-045892",
-      "vatNumber": "T3200001045892",
-      "licenseNumber": "JA-EXP-2024-1187"
-    },
-    "communication": {
-      "orderNotificationEmail": "orders@asahishuzo.co.jp",
-      "notifyOnNewOrder": true,
-      "notifyOnPaymentReceived": true,
-      "notifyOnShipmentRequired": true
-    },
-    "productsCount": 4,
-    "createdAt": "2024-03-15T08:00:00Z"
-  },
-  {
-    "id": "cm5qr8k2x0002mk9ga4b2d8rw",
-    "companyName": "Kubota Brewing Company",
-    "tradingName": "Kubota",
-    "status": "Active",
-    "contact": {
-      "firstName": "Yuki",
-      "lastName": "Tanaka",
-      "role": "International Sales Director",
-      "email": "y.tanaka@kubota-sake.jp",
-      "phone": "+81 258-92-3115"
-    },
-    "address": {
-      "street": "1051 Asahi Machi",
-      "city": "Nagaoka",
-      "province": "Niigata",
-      "postalCode": "949-5494",
-      "country": "Japan"
-    },
-    "legal": {
-      "registrationNumber": "JP-1500-02-078341",
-      "vatNumber": "T1500002078341",
-      "licenseNumber": "JA-EXP-2024-0934"
-    },
-    "communication": {
-      "orderNotificationEmail": "export@kubota-sake.jp",
-      "notifyOnNewOrder": true,
-      "notifyOnPaymentReceived": false,
-      "notifyOnShipmentRequired": true
-    },
-    "productsCount": 3,
-    "createdAt": "2024-01-22T10:30:00Z"
-  },
-  {
-    "id": "cm5qr8k2x0003mk9gc6e1p4qt",
-    "companyName": "Cape Sake Distributors (Pty) Ltd",
-    "tradingName": "Cape Sake",
-    "status": "Active",
-    "contact": {
-      "firstName": "Johan",
-      "lastName": "Pretorius",
-      "role": "Managing Director",
-      "email": "johan@capesake.co.za",
-      "phone": "+27 21 555 0142"
-    },
-    "address": {
-      "street": "14 Bree Street",
-      "street2": "Unit 3B",
-      "city": "Cape Town",
+      "street": "34 Dorp Street",
+      "town": "Stellenbosch",
       "province": "Western Cape",
-      "postalCode": "8001",
-      "country": "South Africa"
+      "magisterialDistrict": "Stellenbosch"
     },
-    "legal": {
-      "registrationNumber": "2019/458723/07",
-      "vatNumber": "4820298715",
-      "licenseNumber": "LP-WC-2024-00287"
+    "banking": {
+      "bankName": "First National Bank",
+      "accountType": "Cheque",
+      "accountNumber": "62845901247",
+      "branchCode": "250655"
     },
-    "communication": {
-      "orderNotificationEmail": "orders@capesake.co.za",
-      "notifyOnNewOrder": true,
-      "notifyOnPaymentReceived": true,
-      "notifyOnShipmentRequired": true
-    },
-    "productsCount": 6,
-    "createdAt": "2023-11-08T14:15:00Z"
-  },
-  {
-    "id": "cm5qr8k2x0004mk9gh9f5k7ms",
-    "companyName": "Hakkaisan Brewery Co., Ltd.",
-    "tradingName": "Hakkaisan",
-    "status": "Active",
-    "contact": {
-      "firstName": "Nao",
-      "lastName": "Nagumo",
-      "role": "Overseas Sales Manager",
-      "email": "n.nagumo@hakkaisan.co.jp",
-      "phone": "+81 25-775-3866"
-    },
-    "address": {
-      "street": "1051 Nagamori",
-      "city": "Minami Uonuma",
-      "province": "Niigata",
-      "postalCode": "949-7112",
-      "country": "Japan"
-    },
-    "legal": {
-      "registrationNumber": "JP-1500-03-062417",
-      "vatNumber": "T1500003062417",
-      "licenseNumber": "JA-EXP-2023-0712"
-    },
-    "communication": {
-      "orderNotificationEmail": "intl-orders@hakkaisan.co.jp",
-      "notifyOnNewOrder": true,
-      "notifyOnPaymentReceived": true,
-      "notifyOnShipmentRequired": false
-    },
-    "productsCount": 5,
-    "createdAt": "2024-02-10T09:45:00Z"
-  },
-  {
-    "id": "cm5qr8k2x0005mk9gj2d3n6lv",
-    "companyName": "Gauteng Beverage Imports",
-    "tradingName": "",
-    "status": "Inactive",
-    "contact": {
-      "firstName": "Thabo",
-      "lastName": "Molefe",
-      "role": "Procurement Lead",
-      "email": "thabo@gbimports.co.za",
-      "phone": "+27 11 432 8891"
-    },
-    "address": {
-      "street": "88 Rivonia Road",
-      "street2": "Sandton City Tower, Floor 12",
-      "city": "Johannesburg",
-      "province": "Gauteng",
-      "postalCode": "2196",
-      "country": "South Africa"
-    },
-    "legal": {
-      "registrationNumber": "2021/672104/07",
-      "vatNumber": "4910387622"
-    },
-    "communication": {
-      "orderNotificationEmail": "purchasing@gbimports.co.za",
-      "notifyOnNewOrder": true,
-      "notifyOnPaymentReceived": false,
-      "notifyOnShipmentRequired": false
-    },
-    "productsCount": 0,
-    "createdAt": "2024-06-01T11:00:00Z"
-  },
-  {
-    "id": "cm5qr8k2x0006mk9gk8c4m2pw",
-    "companyName": "Nanbu Bijin Co., Ltd.",
-    "tradingName": "Nanbu Bijin",
-    "status": "Pending",
-    "contact": {
-      "firstName": "Kosuke",
-      "lastName": "Kuji",
-      "role": "President & Toji",
-      "email": "kuji@nanbubijin.co.jp",
-      "phone": "+81 195-23-3133"
-    },
-    "address": {
-      "street": "13-67 Fukuoka",
-      "city": "Ninohe",
-      "province": "Iwate",
-      "postalCode": "028-6101",
-      "country": "Japan"
-    },
-    "legal": {
-      "registrationNumber": "JP-0300-01-031298",
-      "vatNumber": "T0300001031298"
-    },
-    "communication": {
-      "orderNotificationEmail": "export@nanbubijin.co.jp",
-      "notifyOnNewOrder": true,
-      "notifyOnPaymentReceived": true,
-      "notifyOnShipmentRequired": true
-    },
+    "shortDescription": "Handcrafted leather goods made in Stellenbosch — bags, aprons, belts, and accessories.",
+    "websiteUrl": "https://bootandrally.co.za",
+    "logoPath": "/logos/boot-and-rally.png",
+    "isActive": true,
     "productsCount": 2,
-    "createdAt": "2025-01-18T07:30:00Z"
+    "createdAt": "2023-08-14T09:00:00Z"
   },
   {
-    "id": "cm5qr8k2x0007mk9gl5b7q9rx",
-    "companyName": "Durban Sake House",
-    "tradingName": "DSH",
-    "status": "Pending",
-    "contact": {
-      "firstName": "Priya",
-      "lastName": "Naidoo",
-      "role": "Operations Manager",
-      "email": "priya@durbansake.co.za",
-      "phone": "+27 31 201 4456"
+    "id": "sup-002",
+    "legalName": "B4i Productions (Pty) Ltd",
+    "tradingName": "OntbytSAKE",
+    "businessType": "Private Company",
+    "identificationType": "Company Registration",
+    "identificationNumber": "2016/183402/07",
+    "vatRegistration": {
+      "isRegistered": true,
+      "vatNumber": "4080217638"
+    },
+    "primaryContact": {
+      "firstName": "Riaan",
+      "surname": "Cruywagen",
+      "phone": "+27 12 348 7200",
+      "email": "riaan@b4i.co.za",
+      "role": "Executive Producer"
     },
     "address": {
-      "street": "42 Florida Road",
-      "city": "Durban",
-      "province": "KwaZulu-Natal",
-      "postalCode": "4001",
-      "country": "South Africa"
+      "street": "12 Amarand Avenue, Waterkloof Glen",
+      "town": "Pretoria",
+      "province": "Gauteng",
+      "magisterialDistrict": "Pretoria"
     },
-    "legal": {
-      "registrationNumber": "2024/891203/07",
-      "vatNumber": "4980126734",
-      "licenseNumber": "LP-KZN-2025-00041"
+    "banking": {
+      "bankName": "Absa Bank",
+      "accountType": "Cheque",
+      "accountNumber": "40952018734",
+      "branchCode": "632005"
     },
-    "communication": {
-      "orderNotificationEmail": "ops@durbansake.co.za",
-      "notifyOnNewOrder": true,
-      "notifyOnPaymentReceived": true,
-      "notifyOnShipmentRequired": true
+    "shortDescription": "Production company behind OntbytSAKE — media, merchandise, and commemorative publications.",
+    "websiteUrl": "https://ontbytsake.tv",
+    "logoPath": "/logos/ontbytsake.png",
+    "isActive": true,
+    "productsCount": 1,
+    "createdAt": "2023-06-01T07:30:00Z"
+  },
+  {
+    "id": "sup-003",
+    "legalName": "Afrimunt (Pty) Ltd",
+    "tradingName": "Afrimunt / Afrikaans is 100",
+    "businessType": "Private Company",
+    "identificationType": "Company Registration",
+    "identificationNumber": "2020/561834/07",
+    "vatRegistration": {
+      "isRegistered": true,
+      "vatNumber": "4190482310"
     },
-    "productsCount": 0,
-    "createdAt": "2025-01-25T13:20:00Z"
+    "primaryContact": {
+      "firstName": "Johann",
+      "surname": "Botha",
+      "phone": "+27 11 467 2890",
+      "email": "johann@afrimunt.co.za",
+      "role": "Managing Director"
+    },
+    "address": {
+      "street": "8 Constantia Boulevard, Constantia Kloof",
+      "town": "Roodepoort",
+      "province": "Gauteng",
+      "magisterialDistrict": "Roodepoort"
+    },
+    "banking": {
+      "bankName": "Standard Bank",
+      "accountType": "Cheque",
+      "accountNumber": "27104589632",
+      "branchCode": "051001"
+    },
+    "shortDescription": "Commemorative gold and silver coins celebrating Afrikaans heritage and milestones.",
+    "websiteUrl": "https://afrikaansis100.co.za",
+    "logoPath": "/logos/afrimunt.png",
+    "isActive": true,
+    "productsCount": 2,
+    "createdAt": "2024-01-20T10:00:00Z"
+  },
+  {
+    "id": "sup-004",
+    "legalName": "Banhoek Lodge (Pty) Ltd",
+    "tradingName": "Banhoek Lodge",
+    "businessType": "Private Company",
+    "identificationType": "Company Registration",
+    "identificationNumber": "2015/320987/07",
+    "vatRegistration": {
+      "isRegistered": true,
+      "vatNumber": "4050189234"
+    },
+    "primaryContact": {
+      "firstName": "Lizette",
+      "surname": "van der Merwe",
+      "phone": "+27 21 885 1057",
+      "email": "lizette@banhoeklodge.co.za",
+      "role": "General Manager"
+    },
+    "address": {
+      "street": "Banhoek Road, Banhoek Valley",
+      "town": "Stellenbosch",
+      "province": "Western Cape",
+      "magisterialDistrict": "Stellenbosch"
+    },
+    "banking": {
+      "bankName": "Nedbank",
+      "accountType": "Cheque",
+      "accountNumber": "11374520896",
+      "branchCode": "198765"
+    },
+    "shortDescription": "Boutique wine estate lodge offering luxury accommodation in the Banhoek Valley.",
+    "websiteUrl": "https://banhoeklodge.co.za",
+    "logoPath": "/logos/banhoek-lodge.png",
+    "isActive": true,
+    "productsCount": 1,
+    "createdAt": "2023-10-05T12:00:00Z"
+  },
+  {
+    "id": "sup-005",
+    "legalName": "Tapputi Trading (Pty) Ltd",
+    "tradingName": "Tapputi Perfume Oils",
+    "businessType": "Sole Proprietor",
+    "identificationType": "SA ID",
+    "identificationNumber": "8507125048083",
+    "vatRegistration": {
+      "isRegistered": false
+    },
+    "primaryContact": {
+      "firstName": "Fatima",
+      "surname": "Abrahams",
+      "phone": "+27 83 612 4489",
+      "email": "fatima@tapputi.co.za",
+      "role": "Owner"
+    },
+    "address": {
+      "street": "22 Voortrekker Road",
+      "town": "Paarl",
+      "province": "Western Cape",
+      "magisterialDistrict": "Paarl"
+    },
+    "banking": {
+      "bankName": "Capitec Bank",
+      "accountType": "Savings",
+      "accountNumber": "1052489731",
+      "branchCode": "470010"
+    },
+    "shortDescription": "Handcrafted Egyptian-inspired perfume oils and fragrances.",
+    "websiteUrl": "https://tapputi.co.za",
+    "logoPath": "/logos/tapputi.png",
+    "isActive": true,
+    "productsCount": 1,
+    "createdAt": "2024-03-12T08:15:00Z"
+  },
+  {
+    "id": "sup-006",
+    "legalName": "The Cape Mint (Pty) Ltd",
+    "tradingName": "The Cape Mint",
+    "businessType": "Private Company",
+    "identificationType": "Company Registration",
+    "identificationNumber": "2012/087654/07",
+    "vatRegistration": {
+      "isRegistered": true,
+      "vatNumber": "4030156782"
+    },
+    "primaryContact": {
+      "firstName": "Willem",
+      "surname": "Steenkamp",
+      "phone": "+27 21 510 3300",
+      "email": "willem@thecapemint.co.za",
+      "role": "Sales Director"
+    },
+    "additionalContacts": [
+      {
+        "firstName": "Anele",
+        "surname": "Ngcobo",
+        "phone": "+27 21 510 3305",
+        "email": "anele@thecapemint.co.za",
+        "role": "Order Fulfilment"
+      }
+    ],
+    "address": {
+      "street": "15 Bofors Circle, Epping Industrial",
+      "town": "Cape Town",
+      "province": "Western Cape",
+      "magisterialDistrict": "Cape Town"
+    },
+    "banking": {
+      "bankName": "First National Bank",
+      "accountType": "Cheque",
+      "accountNumber": "62501874320",
+      "branchCode": "250655"
+    },
+    "shortDescription": "Custom minting of commemorative coins, medallions, and bullion products.",
+    "websiteUrl": "https://thecapemint.co.za",
+    "logoPath": "/logos/cape-mint.png",
+    "isActive": false,
+    "productsCount": 1,
+    "createdAt": "2023-05-18T14:30:00Z"
   }
 ]

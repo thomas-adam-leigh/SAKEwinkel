@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { StatusBadge, type StatusTone } from "@/components/admin/status-badge";
+import { StatusBadge } from "@/components/admin/status-badge";
 import type { Supplier } from "@/types/supplier";
 
 interface SuppliersDataTableProps {
@@ -7,12 +7,6 @@ interface SuppliersDataTableProps {
   readonly selectedIds: Set<string>;
   readonly onSelectionChange: (ids: Set<string>) => void;
 }
-
-const statusToneMap: Record<Supplier["status"], StatusTone> = {
-  Active: "success",
-  Inactive: "subdued",
-  Pending: "warning",
-};
 
 export function SuppliersDataTable({
   suppliers,
@@ -54,7 +48,10 @@ export function SuppliersDataTable({
             />
           </th>
           <th className="px-4 py-2 text-left text-[12px] font-[550] text-text-secondary">
-            Supplier
+            Trading Name
+          </th>
+          <th className="px-4 py-2 text-left text-[12px] font-[550] text-text-secondary">
+            Legal Name
           </th>
           <th className="px-4 py-2 text-left text-[12px] font-[550] text-text-secondary">
             Contact
@@ -66,7 +63,7 @@ export function SuppliersDataTable({
             Phone
           </th>
           <th className="px-4 py-2 text-left text-[12px] font-[550] text-text-secondary">
-            City
+            Province
           </th>
           <th className="px-4 py-2 text-left text-[12px] font-[550] text-text-secondary">
             Status
@@ -90,7 +87,7 @@ export function SuppliersDataTable({
                 type="checkbox"
                 checked={selectedIds.has(supplier.id)}
                 onChange={() => toggleOne(supplier.id)}
-                aria-label={`Select ${supplier.companyName}`}
+                aria-label={`Select ${supplier.tradingName}`}
                 className="accent-bg-primary"
               />
             </td>
@@ -100,24 +97,27 @@ export function SuppliersDataTable({
                 params={{ supplierId: supplier.id }}
                 className="text-[12px] font-[550] text-text-primary no-underline hover:underline"
               >
-                {supplier.companyName}
+                {supplier.tradingName}
               </Link>
             </td>
             <td className="px-4 text-[12px] font-[450] text-text-primary">
-              {supplier.contact.firstName} {supplier.contact.lastName}
+              {supplier.legalName}
             </td>
             <td className="px-4 text-[12px] font-[450] text-text-primary">
-              {supplier.contact.email}
+              {supplier.primaryContact.firstName} {supplier.primaryContact.surname}
             </td>
             <td className="px-4 text-[12px] font-[450] text-text-primary">
-              {supplier.contact.phone}
+              {supplier.primaryContact.email}
             </td>
             <td className="px-4 text-[12px] font-[450] text-text-primary">
-              {supplier.address.city}
+              {supplier.primaryContact.phone}
+            </td>
+            <td className="px-4 text-[12px] font-[450] text-text-primary">
+              {supplier.address.province}
             </td>
             <td className="px-4">
-              <StatusBadge tone={statusToneMap[supplier.status]}>
-                {supplier.status}
+              <StatusBadge tone={supplier.isActive ? "success" : "subdued"}>
+                {supplier.isActive ? "Active" : "Inactive"}
               </StatusBadge>
             </td>
             <td className="px-4 text-[12px] font-[450] text-text-primary">

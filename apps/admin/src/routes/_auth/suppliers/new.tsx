@@ -8,8 +8,8 @@ import { CompanyDetailsCard } from "@/components/admin/suppliers/company-details
 import { ContactPersonCard } from "@/components/admin/suppliers/contact-person-card";
 import { BusinessAddressCard } from "@/components/admin/suppliers/business-address-card";
 import { LegalComplianceCard } from "@/components/admin/suppliers/legal-compliance-card";
+import { BankingDetailsCard } from "@/components/admin/suppliers/banking-details-card";
 import { SupplierStatusCard } from "@/components/admin/suppliers/supplier-status-card";
-import { CommunicationCard } from "@/components/admin/suppliers/communication-card";
 
 export const Route = createFileRoute("/_auth/suppliers/new")({
   component: AddSupplierPage,
@@ -48,12 +48,12 @@ function AddSupplierPage() {
             <ContactPersonCard onFieldChange={markDirty} />
             <BusinessAddressCard onFieldChange={markDirty} />
             <LegalComplianceCard onFieldChange={markDirty} />
+            <BankingDetailsCard onFieldChange={markDirty} />
           </>
         }
         right={
           <>
             <SupplierStatusCard onFieldChange={markDirty} />
-            <CommunicationCard onFieldChange={markDirty} />
           </>
         }
       />

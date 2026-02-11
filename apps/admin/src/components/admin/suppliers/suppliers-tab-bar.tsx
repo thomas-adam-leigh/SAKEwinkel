@@ -1,12 +1,11 @@
 import { AdminTabs, type TabDef } from "@/components/admin/tabs";
 
-type SupplierTab = "all" | "active" | "inactive" | "pending";
+type SupplierTab = "all" | "active" | "inactive";
 
 const tabs: TabDef[] = [
   { id: "all", label: "All" },
   { id: "active", label: "Active" },
   { id: "inactive", label: "Inactive" },
-  { id: "pending", label: "Pending" },
 ];
 
 interface SuppliersTabBarProps {

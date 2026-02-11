@@ -49,7 +49,7 @@ A primary save button SHALL appear at the bottom of the form, spanning the full 
 - **THEN** the bottom save button is visually disabled
 
 ### Requirement: Form card container styling
-All form sections SHALL be wrapped in white card containers with background `#ffffff`, border-radius 12px, and the Polaris shadow-100 box shadow. Cards SHALL have no outer padding — inner content areas define their own padding. Section heading areas SHALL use `padding: 16px 16px 0`. Form field areas SHALL use `padding: 0 16px 16px`.
+All form sections SHALL be wrapped in white card containers with background `#ffffff`, border-radius 12px, and the Polaris shadow-100 box shadow. Cards SHALL have no outer padding -- inner content areas define their own padding. Section heading areas SHALL use `padding: 16px 16px 0`. Form field areas SHALL use `padding: 0 16px 16px`.
 
 #### Scenario: Form cards render with correct styling
 - **WHEN** any form card section is rendered
@@ -61,3 +61,32 @@ Card section headings (H2) SHALL use font-size 13px, font-weight 600, color `#30
 #### Scenario: Card section heading renders with correct typography
 - **WHEN** a card section heading is rendered (e.g., "Price")
 - **THEN** it displays at 13px, font-weight 600, color `#303030`
+
+### Requirement: Product type card at top of form
+The ProductTypeCard is the first card in the left column, before the title/description card.
+
+#### Scenario: Card ordering with product type
+- **WHEN** the /products/new page renders
+- **THEN** the left column card order is: ProductTypeCard, TitleDescriptionCard, PriceCard, CommissionCard, [conditional: InventoryCard], [conditional: ShippingCard], [conditional: VoucherDetailsCard], [conditional: ClickthroughCard], VariantsCard, SeoCard
+
+### Requirement: Right sidebar includes scheduling
+The right sidebar adds a SchedulingCard between StatusCard and ProductOrganizationCard.
+
+#### Scenario: Right sidebar card order
+- **WHEN** the product form renders the right sidebar
+- **THEN** the card order is: StatusCard, SchedulingCard, ProductOrganizationCard
+
+### Requirement: Conditional section visibility
+Form cards show/hide based on the selected product type.
+
+#### Scenario: Physical product layout
+- **WHEN** product type is "Physical"
+- **THEN** InventoryCard, ShippingCard are visible; VoucherDetailsCard, ClickthroughCard are hidden
+
+#### Scenario: Voucher product layout
+- **WHEN** product type is "Voucher"
+- **THEN** InventoryCard, VoucherDetailsCard are visible; ShippingCard, ClickthroughCard are hidden
+
+#### Scenario: Clickthrough product layout
+- **WHEN** product type is "Clickthrough"
+- **THEN** ClickthroughCard is visible; InventoryCard, ShippingCard, VoucherDetailsCard are hidden

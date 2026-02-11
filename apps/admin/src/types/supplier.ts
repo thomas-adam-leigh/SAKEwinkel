@@ -1,34 +1,56 @@
+export type BusinessType =
+  | "Sole Proprietor"
+  | "Partnership"
+  | "Private Company"
+  | "Public Company"
+  | "Close Corporation"
+  | "Trust"
+  | "Non-Profit";
+
+export type IdentificationType =
+  | "SA ID"
+  | "Passport"
+  | "Company Registration";
+
+export type AccountType = "Cheque" | "Savings";
+
+export interface Contact {
+  readonly firstName: string;
+  readonly surname: string;
+  readonly phone: string;
+  readonly email: string;
+  readonly role: string;
+}
+
 export interface Supplier {
   readonly id: string;
-  readonly companyName: string;
+  readonly legalName: string;
   readonly tradingName: string;
-  readonly status: "Active" | "Inactive" | "Pending";
-  readonly contact: {
-    readonly firstName: string;
-    readonly lastName: string;
-    readonly role: string;
-    readonly email: string;
-    readonly phone: string;
+  readonly businessType: BusinessType;
+  readonly identificationType: IdentificationType;
+  readonly identificationNumber: string;
+  readonly vatRegistration: {
+    readonly isRegistered: boolean;
+    readonly vatNumber?: string;
   };
+  readonly primaryContact: Contact;
+  readonly additionalContacts?: readonly Contact[];
   readonly address: {
     readonly street: string;
-    readonly street2?: string;
-    readonly city: string;
+    readonly town: string;
     readonly province: string;
-    readonly postalCode: string;
-    readonly country: string;
+    readonly magisterialDistrict?: string;
   };
-  readonly legal: {
-    readonly registrationNumber: string;
-    readonly vatNumber: string;
-    readonly licenseNumber?: string;
+  readonly banking: {
+    readonly bankName: string;
+    readonly accountType: AccountType;
+    readonly accountNumber: string;
+    readonly branchCode: string;
   };
-  readonly communication: {
-    readonly orderNotificationEmail: string;
-    readonly notifyOnNewOrder: boolean;
-    readonly notifyOnPaymentReceived: boolean;
-    readonly notifyOnShipmentRequired: boolean;
-  };
+  readonly shortDescription?: string;
+  readonly websiteUrl?: string;
+  readonly logoPath?: string;
+  readonly isActive: boolean;
   readonly productsCount: number;
   readonly createdAt: string;
 }

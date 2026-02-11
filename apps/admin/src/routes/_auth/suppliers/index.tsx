@@ -19,14 +19,13 @@ function SuppliersPage() {
   const [searchValue, setSearchValue] = useState("");
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
 
-  const suppliers = suppliersData as Supplier[];
+  const suppliers = suppliersData as unknown as Supplier[];
 
   const tabCounts = useMemo(
     () => ({
       all: suppliers.length,
-      active: suppliers.filter((s) => s.status === "Active").length,
-      inactive: suppliers.filter((s) => s.status === "Inactive").length,
-      pending: suppliers.filter((s) => s.status === "Pending").length,
+      active: suppliers.filter((s) => s.isActive).length,
+      inactive: suppliers.filter((s) => !s.isActive).length,
     }),
     [suppliers],
   );
@@ -34,23 +33,19 @@ function SuppliersPage() {
   const filteredSuppliers = useMemo(() => {
     let result = suppliers;
 
-    if (activeTab !== "all") {
-      const statusMap: Record<string, string> = {
-        active: "Active",
-        inactive: "Inactive",
-        pending: "Pending",
-      };
-      result = result.filter((s) => s.status === statusMap[activeTab]);
+    if (activeTab === "active") {
+      result = result.filter((s) => s.isActive);
+    } else if (activeTab === "inactive") {
+      result = result.filter((s) => !s.isActive);
     }
 
     if (searchValue.trim()) {
       const query = searchValue.toLowerCase();
       result = result.filter(
         (s) =>
-          s.companyName.toLowerCase().includes(query) ||
-          s.contact.firstName.toLowerCase().includes(query) ||
-          s.contact.lastName.toLowerCase().includes(query) ||
-          s.contact.email.toLowerCase().includes(query),
+          s.tradingName.toLowerCase().includes(query) ||
+          s.legalName.toLowerCase().includes(query) ||
+          s.primaryContact.email.toLowerCase().includes(query),
       );
     }
 

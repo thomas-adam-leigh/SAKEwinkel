@@ -55,6 +55,12 @@ export function InventoryCard({ onFieldChange }: InventoryCardProps) {
               </div>
             </div>
 
+            {/* Max per order */}
+            <div className="mt-3">
+              <FieldLabel>Max per order</FieldLabel>
+              <AdminInput type="number" placeholder="No limit" min="1" onChange={onFieldChange} />
+            </div>
+
             {/* Expanded fields */}
             {showSku && (
               <div className="mt-3">

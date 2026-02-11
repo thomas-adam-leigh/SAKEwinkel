@@ -1,29 +1,34 @@
-import { Eye } from "lucide-react";
 import { ProductStatusBadge } from "./status-badge";
-
-interface Product {
-  id: string;
-  title: string;
-  status: string;
-  inventory: number;
-  category: string;
-  channelCount: number;
-  thumbnailUrl: string;
-}
+import type { Product } from "@/types/product";
+import type { Supplier } from "@/types/supplier";
 
 interface ProductsDataTableProps {
   readonly products: Product[];
+  readonly suppliers: Supplier[];
   readonly selectedIds: Set<string>;
   readonly onSelectionChange: (ids: Set<string>) => void;
 }
 
+const typeBadgeColors: Record<string, { bg: string; text: string }> = {
+  Physical: { bg: "#e3f1e8", text: "#1a5c2e" },
+  Voucher: { bg: "#e8e0f3", text: "#4a2d7a" },
+  Clickthrough: { bg: "#dce8f5", text: "#1a3a5c" },
+};
+
+function formatPrice(value: number): string {
+  return `R ${value.toLocaleString("en-ZA")}`;
+}
+
 export function ProductsDataTable({
   products,
+  suppliers,
   selectedIds,
   onSelectionChange,
 }: ProductsDataTableProps) {
   const allSelected =
     products.length > 0 && selectedIds.size === products.length;
+
+  const supplierMap = new Map(suppliers.map((s) => [s.id, s]));
 
   function toggleAll() {
     if (allSelected) {
@@ -43,6 +48,15 @@ export function ProductsDataTable({
     onSelectionChange(next);
   }
 
+  function getStock(product: Product): string {
+    if (product.productType === "Clickthrough") return "—";
+    if (product.variants && product.variants.length > 0) {
+      const total = product.variants.reduce((sum, v) => sum + v.qtyInStock, 0);
+      return `${total} in stock`;
+    }
+    return "—";
+  }
+
   return (
     <table className="w-full border-collapse">
       <thead>
@@ -60,75 +74,94 @@ export function ProductsDataTable({
             Product
           </th>
           <th className="px-4 py-2 text-left text-[12px] font-[550] text-text-secondary">
+            Type
+          </th>
+          <th className="px-4 py-2 text-left text-[12px] font-[550] text-text-secondary">
             Status
           </th>
-          <th className="px-4 py-2 text-left text-[12px] font-[550] text-text-secondary">
-            Inventory
+          <th className="px-4 py-2 text-right text-[12px] font-[550] text-text-secondary">
+            Price
           </th>
           <th className="px-4 py-2 text-left text-[12px] font-[550] text-text-secondary">
-            Category
+            Stock
           </th>
           <th className="px-4 py-2 text-left text-[12px] font-[550] text-text-secondary">
-            Channels
+            Supplier
           </th>
-          <th className="w-[48px] py-2" />
         </tr>
       </thead>
       <tbody>
-        {products.map((product) => (
-          <tr
-            key={product.id}
-            className="group h-[52px] cursor-pointer border-b border-border-separator transition-colors hover:bg-bg-surface-hover"
-          >
-            <td
-              className="w-[48px] text-center"
-              onClick={(e) => e.stopPropagation()}
+        {products.map((product) => {
+          const typeColors = typeBadgeColors[product.productType] ?? typeBadgeColors.Physical;
+          const supplier = supplierMap.get(product.supplierId);
+
+          return (
+            <tr
+              key={product.id}
+              className="group h-[52px] cursor-pointer border-b border-border-separator transition-colors hover:bg-bg-surface-hover"
             >
-              <input
-                type="checkbox"
-                checked={selectedIds.has(product.id)}
-                onChange={() => toggleOne(product.id)}
-                aria-label={`Select ${product.title}`}
-                className="accent-bg-primary"
-              />
-            </td>
-            <td className="px-4">
-              <div className="flex items-center gap-3">
-                <img
-                  src={product.thumbnailUrl}
-                  alt=""
-                  width={36}
-                  height={36}
-                  className="shrink-0 rounded-[4px] object-cover"
-                />
-                <span className="truncate text-[12px] font-[450] text-text-primary hover:underline">
-                  {product.title}
-                </span>
-              </div>
-            </td>
-            <td className="px-4">
-              <ProductStatusBadge status={product.status} />
-            </td>
-            <td className="px-4 text-[12px] font-[450] text-text-primary">
-              {product.inventory} in stock
-            </td>
-            <td className="px-4 text-[12px] font-[450] text-text-primary">
-              {product.category}
-            </td>
-            <td className="px-4 text-[12px] font-[450] text-text-primary">
-              {product.channelCount}
-            </td>
-            <td className="w-[48px] text-center">
-              <button
-                type="button"
-                className="flex size-[28px] items-center justify-center rounded-[8px] text-text-secondary opacity-0 transition-all hover:bg-bg-nav-hover group-hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus-ring"
-                aria-label="Preview on Online Store"
+              <td
+                className="w-[48px] text-center"
+                onClick={(e) => e.stopPropagation()}
               >
-                <Eye className="size-4" />
-              </button>
-            </td>
-          </tr>
-        ))}
+                <input
+                  type="checkbox"
+                  checked={selectedIds.has(product.id)}
+                  onChange={() => toggleOne(product.id)}
+                  aria-label={`Select ${product.name}`}
+                  className="accent-bg-primary"
+                />
+              </td>
+              <td className="px-4">
+                <div className="flex items-center gap-3">
+                  <img
+                    src={product.mainImageUrl ?? "https://placehold.co/36x36/e0e0e0/909090?text=?"}
+                    alt=""
+                    width={36}
+                    height={36}
+                    className="shrink-0 rounded-[4px] object-cover"
+                  />
+                  <span className="truncate text-[12px] font-[450] text-text-primary hover:underline">
+                    {product.name}
+                  </span>
+                </div>
+              </td>
+              <td className="px-4">
+                <span
+                  className="inline-flex items-center rounded-full px-2 py-0.5 text-[11px]"
+                  style={{
+                    fontWeight: 550,
+                    backgroundColor: typeColors.bg,
+                    color: typeColors.text,
+                  }}
+                >
+                  {product.productType}
+                </span>
+              </td>
+              <td className="px-4">
+                <ProductStatusBadge status={product.status} />
+              </td>
+              <td className="px-4 text-right text-[12px] font-[450] text-text-primary">
+                {product.salePrice ? (
+                  <div>
+                    <span className="line-through text-text-subdued mr-1">
+                      {formatPrice(product.originalPrice)}
+                    </span>
+                    <span>{formatPrice(product.salePrice)}</span>
+                  </div>
+                ) : (
+                  formatPrice(product.originalPrice)
+                )}
+              </td>
+              <td className="px-4 text-[12px] font-[450] text-text-primary">
+                {getStock(product)}
+              </td>
+              <td className="px-4 text-[12px] font-[450] text-text-primary">
+                {supplier?.tradingName ?? "—"}
+              </td>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );

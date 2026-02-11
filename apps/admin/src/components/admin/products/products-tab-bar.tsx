@@ -1,12 +1,12 @@
 import { AdminTabs, type TabDef } from "@/components/admin/tabs";
 
-type ProductTab = "all" | "active" | "draft" | "archived";
+type ProductTab = "all" | "active" | "unlisted" | "draft";
 
 const tabs: TabDef[] = [
   { id: "all", label: "All" },
   { id: "active", label: "Active" },
+  { id: "unlisted", label: "Unlisted" },
   { id: "draft", label: "Draft" },
-  { id: "archived", label: "Archived" },
 ];
 
 interface ProductsTabBarProps {
