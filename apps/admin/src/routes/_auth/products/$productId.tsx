@@ -2,7 +2,7 @@ import { useState, useCallback } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { AdminButton } from "@/components/admin/button";
 import { PageHeader } from "@/components/admin/page-header";
-import { ContextualSaveBar } from "@/components/admin/products/contextual-save-bar";
+import { useTopBarSaveBar } from "@/components/admin/top-bar-context";
 import { NewProductLayout } from "@/components/admin/products/new-product-layout";
 import { ProductTypeCard } from "@/components/admin/products/product-type-card";
 import { TitleDescriptionCard } from "@/components/admin/products/title-description-card";
@@ -58,14 +58,10 @@ function EditProductPage() {
     );
   }
 
+  useTopBarSaveBar({ isDirty, onDiscard: handleDiscard, onSave: handleSave });
+
   return (
     <div>
-      <ContextualSaveBar
-        isDirty={isDirty}
-        onDiscard={handleDiscard}
-        onSave={handleSave}
-      />
-
       <PageHeader title={product.name} />
 
       <NewProductLayout
