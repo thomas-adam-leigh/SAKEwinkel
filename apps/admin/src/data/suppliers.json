@@ -1,0 +1,233 @@
+[
+  {
+    "id": "cm5qr8k2x0001mk9gf7h3j5np",
+    "companyName": "Asahi Shuzo Co., Ltd.",
+    "tradingName": "Dassai",
+    "status": "Active",
+    "contact": {
+      "firstName": "Kazuhiro",
+      "lastName": "Sakurai",
+      "role": "Export Manager",
+      "email": "k.sakurai@asahishuzo.co.jp",
+      "phone": "+81 827-86-0120"
+    },
+    "address": {
+      "street": "2167-4 Shuto",
+      "city": "Iwakuni",
+      "province": "Yamaguchi",
+      "postalCode": "742-0422",
+      "country": "Japan"
+    },
+    "legal": {
+      "registrationNumber": "JP-3200-01-045892",
+      "vatNumber": "T3200001045892",
+      "licenseNumber": "JA-EXP-2024-1187"
+    },
+    "communication": {
+      "orderNotificationEmail": "orders@asahishuzo.co.jp",
+      "notifyOnNewOrder": true,
+      "notifyOnPaymentReceived": true,
+      "notifyOnShipmentRequired": true
+    },
+    "productsCount": 4,
+    "createdAt": "2024-03-15T08:00:00Z"
+  },
+  {
+    "id": "cm5qr8k2x0002mk9ga4b2d8rw",
+    "companyName": "Kubota Brewing Company",
+    "tradingName": "Kubota",
+    "status": "Active",
+    "contact": {
+      "firstName": "Yuki",
+      "lastName": "Tanaka",
+      "role": "International Sales Director",
+      "email": "y.tanaka@kubota-sake.jp",
+      "phone": "+81 258-92-3115"
+    },
+    "address": {
+      "street": "1051 Asahi Machi",
+      "city": "Nagaoka",
+      "province": "Niigata",
+      "postalCode": "949-5494",
+      "country": "Japan"
+    },
+    "legal": {
+      "registrationNumber": "JP-1500-02-078341",
+      "vatNumber": "T1500002078341",
+      "licenseNumber": "JA-EXP-2024-0934"
+    },
+    "communication": {
+      "orderNotificationEmail": "export@kubota-sake.jp",
+      "notifyOnNewOrder": true,
+      "notifyOnPaymentReceived": false,
+      "notifyOnShipmentRequired": true
+    },
+    "productsCount": 3,
+    "createdAt": "2024-01-22T10:30:00Z"
+  },
+  {
+    "id": "cm5qr8k2x0003mk9gc6e1p4qt",
+    "companyName": "Cape Sake Distributors (Pty) Ltd",
+    "tradingName": "Cape Sake",
+    "status": "Active",
+    "contact": {
+      "firstName": "Johan",
+      "lastName": "Pretorius",
+      "role": "Managing Director",
+      "email": "johan@capesake.co.za",
+      "phone": "+27 21 555 0142"
+    },
+    "address": {
+      "street": "14 Bree Street",
+      "street2": "Unit 3B",
+      "city": "Cape Town",
+      "province": "Western Cape",
+      "postalCode": "8001",
+      "country": "South Africa"
+    },
+    "legal": {
+      "registrationNumber": "2019/458723/07",
+      "vatNumber": "4820298715",
+      "licenseNumber": "LP-WC-2024-00287"
+    },
+    "communication": {
+      "orderNotificationEmail": "orders@capesake.co.za",
+      "notifyOnNewOrder": true,
+      "notifyOnPaymentReceived": true,
+      "notifyOnShipmentRequired": true
+    },
+    "productsCount": 6,
+    "createdAt": "2023-11-08T14:15:00Z"
+  },
+  {
+    "id": "cm5qr8k2x0004mk9gh9f5k7ms",
+    "companyName": "Hakkaisan Brewery Co., Ltd.",
+    "tradingName": "Hakkaisan",
+    "status": "Active",
+    "contact": {
+      "firstName": "Nao",
+      "lastName": "Nagumo",
+      "role": "Overseas Sales Manager",
+      "email": "n.nagumo@hakkaisan.co.jp",
+      "phone": "+81 25-775-3866"
+    },
+    "address": {
+      "street": "1051 Nagamori",
+      "city": "Minami Uonuma",
+      "province": "Niigata",
+      "postalCode": "949-7112",
+      "country": "Japan"
+    },
+    "legal": {
+      "registrationNumber": "JP-1500-03-062417",
+      "vatNumber": "T1500003062417",
+      "licenseNumber": "JA-EXP-2023-0712"
+    },
+    "communication": {
+      "orderNotificationEmail": "intl-orders@hakkaisan.co.jp",
+      "notifyOnNewOrder": true,
+      "notifyOnPaymentReceived": true,
+      "notifyOnShipmentRequired": false
+    },
+    "productsCount": 5,
+    "createdAt": "2024-02-10T09:45:00Z"
+  },
+  {
+    "id": "cm5qr8k2x0005mk9gj2d3n6lv",
+    "companyName": "Gauteng Beverage Imports",
+    "tradingName": "",
+    "status": "Inactive",
+    "contact": {
+      "firstName": "Thabo",
+      "lastName": "Molefe",
+      "role": "Procurement Lead",
+      "email": "thabo@gbimports.co.za",
+      "phone": "+27 11 432 8891"
+    },
+    "address": {
+      "street": "88 Rivonia Road",
+      "street2": "Sandton City Tower, Floor 12",
+      "city": "Johannesburg",
+      "province": "Gauteng",
+      "postalCode": "2196",
+      "country": "South Africa"
+    },
+    "legal": {
+      "registrationNumber": "2021/672104/07",
+      "vatNumber": "4910387622"
+    },
+    "communication": {
+      "orderNotificationEmail": "purchasing@gbimports.co.za",
+      "notifyOnNewOrder": true,
+      "notifyOnPaymentReceived": false,
+      "notifyOnShipmentRequired": false
+    },
+    "productsCount": 0,
+    "createdAt": "2024-06-01T11:00:00Z"
+  },
+  {
+    "id": "cm5qr8k2x0006mk9gk8c4m2pw",
+    "companyName": "Nanbu Bijin Co., Ltd.",
+    "tradingName": "Nanbu Bijin",
+    "status": "Pending",
+    "contact": {
+      "firstName": "Kosuke",
+      "lastName": "Kuji",
+      "role": "President & Toji",
+      "email": "kuji@nanbubijin.co.jp",
+      "phone": "+81 195-23-3133"
+    },
+    "address": {
+      "street": "13-67 Fukuoka",
+      "city": "Ninohe",
+      "province": "Iwate",
+      "postalCode": "028-6101",
+      "country": "Japan"
+    },
+    "legal": {
+      "registrationNumber": "JP-0300-01-031298",
+      "vatNumber": "T0300001031298"
+    },
+    "communication": {
+      "orderNotificationEmail": "export@nanbubijin.co.jp",
+      "notifyOnNewOrder": true,
+      "notifyOnPaymentReceived": true,
+      "notifyOnShipmentRequired": true
+    },
+    "productsCount": 2,
+    "createdAt": "2025-01-18T07:30:00Z"
+  },
+  {
+    "id": "cm5qr8k2x0007mk9gl5b7q9rx",
+    "companyName": "Durban Sake House",
+    "tradingName": "DSH",
+    "status": "Pending",
+    "contact": {
+      "firstName": "Priya",
+      "lastName": "Naidoo",
+      "role": "Operations Manager",
+      "email": "priya@durbansake.co.za",
+      "phone": "+27 31 201 4456"
+    },
+    "address": {
+      "street": "42 Florida Road",
+      "city": "Durban",
+      "province": "KwaZulu-Natal",
+      "postalCode": "4001",
+      "country": "South Africa"
+    },
+    "legal": {
+      "registrationNumber": "2024/891203/07",
+      "vatNumber": "4980126734",
+      "licenseNumber": "LP-KZN-2025-00041"
+    },
+    "communication": {
+      "orderNotificationEmail": "ops@durbansake.co.za",
+      "notifyOnNewOrder": true,
+      "notifyOnPaymentReceived": true,
+      "notifyOnShipmentRequired": true
+    },
+    "productsCount": 0,
+    "createdAt": "2025-01-25T13:20:00Z"
+  }
+]

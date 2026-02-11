@@ -122,14 +122,16 @@
   --color-bg-surface-active: #f0f0f0;
   --color-bg-surface-secondary: #f7f7f7;
   /* --color-bg-topbar: #2B3A60; */
-  --color-bg-topbar: #13254E;
+  /* --color-bg-topbar: #13254E; */
+  --color-bg-topbar: #121c34;
   --color-bg-sidebar: #ebebeb;
   --color-bg-input: #fdfdfd;
   --color-bg-primary: #303030;
   --color-bg-primary-hover: #1a1a1a;
   --color-bg-secondary-btn: #ffffff;
   --color-bg-tertiary: #e3e3e3;
-  --color-bg-search: #303030;
+  --color-bg-search: #516083;
+  /* --color-bg-search: #303030; */
   /* --color-bg-search: #F4D34B; */
   --color-bg-nav-hover: rgba(0, 0, 0, 0.05);
   --color-bg-nav-active: rgba(0, 0, 0, 0.08);

@@ -17,12 +17,14 @@ import { Route as GuestLoginRouteImport } from './routes/_guest/login'
 import { Route as AuthSuppliersRouteRouteImport } from './routes/_auth/suppliers/route'
 import { Route as AuthLegalRouteRouteImport } from './routes/_auth/legal/route'
 import { Route as AuthEmailTemplatesRouteRouteImport } from './routes/_auth/email-templates/route'
+import { Route as AuthSuppliersIndexRouteImport } from './routes/_auth/suppliers/index'
 import { Route as AuthProductsIndexRouteImport } from './routes/_auth/products/index'
 import { Route as AuthOrdersIndexRouteImport } from './routes/_auth/orders/index'
 import { Route as AuthCustomersIndexRouteImport } from './routes/_auth/customers/index'
 import { Route as AuthAnalyticsIndexRouteImport } from './routes/_auth/analytics/index'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as AuthSuppliersNewRouteImport } from './routes/_auth/suppliers/new'
+import { Route as AuthSuppliersSupplierIdRouteImport } from './routes/_auth/suppliers/$supplierId'
 import { Route as AuthProductsNewRouteImport } from './routes/_auth/products/new'
 import { Route as AuthOrdersOrderIdRouteImport } from './routes/_auth/orders/$orderId'
 import { Route as AuthCustomersCustomerIdRouteImport } from './routes/_auth/customers/$customerId'
@@ -65,6 +67,11 @@ const AuthEmailTemplatesRouteRoute = AuthEmailTemplatesRouteRouteImport.update({
   path: '/email-templates',
   getParentRoute: () => AuthRouteRoute,
 } as any)
+const AuthSuppliersIndexRoute = AuthSuppliersIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AuthSuppliersRouteRoute,
+} as any)
 const AuthProductsIndexRoute = AuthProductsIndexRouteImport.update({
   id: '/products/',
   path: '/products/',
@@ -95,6 +102,11 @@ const AuthSuppliersNewRoute = AuthSuppliersNewRouteImport.update({
   path: '/new',
   getParentRoute: () => AuthSuppliersRouteRoute,
 } as any)
+const AuthSuppliersSupplierIdRoute = AuthSuppliersSupplierIdRouteImport.update({
+  id: '/$supplierId',
+  path: '/$supplierId',
+  getParentRoute: () => AuthSuppliersRouteRoute,
+} as any)
 const AuthProductsNewRoute = AuthProductsNewRouteImport.update({
   id: '/products/new',
   path: '/products/new',
@@ -121,29 +133,32 @@ export interface FileRoutesByFullPath {
   '/customers/$customerId': typeof AuthCustomersCustomerIdRoute
   '/orders/$orderId': typeof AuthOrdersOrderIdRoute
   '/products/new': typeof AuthProductsNewRoute
+  '/suppliers/$supplierId': typeof AuthSuppliersSupplierIdRoute
   '/suppliers/new': typeof AuthSuppliersNewRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/analytics/': typeof AuthAnalyticsIndexRoute
   '/customers/': typeof AuthCustomersIndexRoute
   '/orders/': typeof AuthOrdersIndexRoute
   '/products/': typeof AuthProductsIndexRoute
+  '/suppliers/': typeof AuthSuppliersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof AuthIndexRoute
   '/email-templates': typeof AuthEmailTemplatesRouteRoute
   '/legal': typeof AuthLegalRouteRoute
-  '/suppliers': typeof AuthSuppliersRouteRouteWithChildren
   '/login': typeof GuestLoginRoute
   '/signup': typeof GuestSignupRoute
   '/customers/$customerId': typeof AuthCustomersCustomerIdRoute
   '/orders/$orderId': typeof AuthOrdersOrderIdRoute
   '/products/new': typeof AuthProductsNewRoute
+  '/suppliers/$supplierId': typeof AuthSuppliersSupplierIdRoute
   '/suppliers/new': typeof AuthSuppliersNewRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/analytics': typeof AuthAnalyticsIndexRoute
   '/customers': typeof AuthCustomersIndexRoute
   '/orders': typeof AuthOrdersIndexRoute
   '/products': typeof AuthProductsIndexRoute
+  '/suppliers': typeof AuthSuppliersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -158,12 +173,14 @@ export interface FileRoutesById {
   '/_auth/customers/$customerId': typeof AuthCustomersCustomerIdRoute
   '/_auth/orders/$orderId': typeof AuthOrdersOrderIdRoute
   '/_auth/products/new': typeof AuthProductsNewRoute
+  '/_auth/suppliers/$supplierId': typeof AuthSuppliersSupplierIdRoute
   '/_auth/suppliers/new': typeof AuthSuppliersNewRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/_auth/analytics/': typeof AuthAnalyticsIndexRoute
   '/_auth/customers/': typeof AuthCustomersIndexRoute
   '/_auth/orders/': typeof AuthOrdersIndexRoute
   '/_auth/products/': typeof AuthProductsIndexRoute
+  '/_auth/suppliers/': typeof AuthSuppliersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -177,29 +194,32 @@ export interface FileRouteTypes {
     | '/customers/$customerId'
     | '/orders/$orderId'
     | '/products/new'
+    | '/suppliers/$supplierId'
     | '/suppliers/new'
     | '/api/auth/$'
     | '/analytics/'
     | '/customers/'
     | '/orders/'
     | '/products/'
+    | '/suppliers/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/email-templates'
     | '/legal'
-    | '/suppliers'
     | '/login'
     | '/signup'
     | '/customers/$customerId'
     | '/orders/$orderId'
     | '/products/new'
+    | '/suppliers/$supplierId'
     | '/suppliers/new'
     | '/api/auth/$'
     | '/analytics'
     | '/customers'
     | '/orders'
     | '/products'
+    | '/suppliers'
   id:
     | '__root__'
     | '/_auth'
@@ -213,12 +233,14 @@ export interface FileRouteTypes {
     | '/_auth/customers/$customerId'
     | '/_auth/orders/$orderId'
     | '/_auth/products/new'
+    | '/_auth/suppliers/$supplierId'
     | '/_auth/suppliers/new'
     | '/api/auth/$'
     | '/_auth/analytics/'
     | '/_auth/customers/'
     | '/_auth/orders/'
     | '/_auth/products/'
+    | '/_auth/suppliers/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -285,6 +307,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthEmailTemplatesRouteRouteImport
       parentRoute: typeof AuthRouteRoute
     }
+    '/_auth/suppliers/': {
+      id: '/_auth/suppliers/'
+      path: '/'
+      fullPath: '/suppliers/'
+      preLoaderRoute: typeof AuthSuppliersIndexRouteImport
+      parentRoute: typeof AuthSuppliersRouteRoute
+    }
     '/_auth/products/': {
       id: '/_auth/products/'
       path: '/products'
@@ -327,6 +356,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthSuppliersNewRouteImport
       parentRoute: typeof AuthSuppliersRouteRoute
     }
+    '/_auth/suppliers/$supplierId': {
+      id: '/_auth/suppliers/$supplierId'
+      path: '/$supplierId'
+      fullPath: '/suppliers/$supplierId'
+      preLoaderRoute: typeof AuthSuppliersSupplierIdRouteImport
+      parentRoute: typeof AuthSuppliersRouteRoute
+    }
     '/_auth/products/new': {
       id: '/_auth/products/new'
       path: '/products/new'
@@ -352,11 +388,15 @@ declare module '@tanstack/react-router' {
 }
 
 interface AuthSuppliersRouteRouteChildren {
+  AuthSuppliersSupplierIdRoute: typeof AuthSuppliersSupplierIdRoute
   AuthSuppliersNewRoute: typeof AuthSuppliersNewRoute
+  AuthSuppliersIndexRoute: typeof AuthSuppliersIndexRoute
 }
 
 const AuthSuppliersRouteRouteChildren: AuthSuppliersRouteRouteChildren = {
+  AuthSuppliersSupplierIdRoute: AuthSuppliersSupplierIdRoute,
   AuthSuppliersNewRoute: AuthSuppliersNewRoute,
+  AuthSuppliersIndexRoute: AuthSuppliersIndexRoute,
 }
 
 const AuthSuppliersRouteRouteWithChildren =

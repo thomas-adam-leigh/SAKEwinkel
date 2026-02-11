@@ -2,13 +2,14 @@ interface ContextualSaveBarProps {
   readonly isDirty: boolean;
   readonly onDiscard: () => void;
   readonly onSave: () => void;
+  readonly message?: string;
 }
 
-export function ContextualSaveBar({ isDirty, onDiscard, onSave }: ContextualSaveBarProps) {
+export function ContextualSaveBar({ isDirty, onDiscard, onSave, message = "Unsaved product" }: ContextualSaveBarProps) {
   return (
     <div className="sticky top-0 z-10 mb-4 flex h-[44px] items-center justify-between rounded-[10px] bg-bg-primary px-4">
       <span className="text-[12px] font-[450] text-text-placeholder">
-        Unsaved product
+        {message}
       </span>
       <div className="flex items-center gap-2">
         <button

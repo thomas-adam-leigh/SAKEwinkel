@@ -10,12 +10,19 @@ import { BusinessAddressCard } from "@/components/admin/suppliers/business-addre
 import { LegalComplianceCard } from "@/components/admin/suppliers/legal-compliance-card";
 import { SupplierStatusCard } from "@/components/admin/suppliers/supplier-status-card";
 import { CommunicationCard } from "@/components/admin/suppliers/communication-card";
+import type { Supplier } from "@/types/supplier";
+import suppliersData from "@/data/suppliers.json";
 
-export const Route = createFileRoute("/_auth/suppliers/new")({
-  component: AddSupplierPage,
+export const Route = createFileRoute("/_auth/suppliers/$supplierId")({
+  component: EditSupplierPage,
 });
 
-function AddSupplierPage() {
+function EditSupplierPage() {
+  const { supplierId } = Route.useParams();
+  const supplier = (suppliersData as Supplier[]).find(
+    (s) => s.id === supplierId,
+  );
+
   const [isDirty, setIsDirty] = useState(false);
 
   const markDirty = useCallback(() => {
@@ -30,6 +37,17 @@ function AddSupplierPage() {
     setIsDirty(false);
   }, []);
 
+  if (!supplier) {
+    return (
+      <div>
+        <PageHeader title="Supplier not found" />
+        <p className="text-[13px] text-text-subdued">
+          No supplier found with ID "{supplierId}".
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div>
       <ContextualSaveBar
@@ -39,21 +57,42 @@ function AddSupplierPage() {
         message="Unsaved supplier"
       />
 
-      <PageHeader title="Add supplier" />
+      <PageHeader title={supplier.companyName} />
 
       <NewProductLayout
         left={
           <>
-            <CompanyDetailsCard onFieldChange={markDirty} />
-            <ContactPersonCard onFieldChange={markDirty} />
-            <BusinessAddressCard onFieldChange={markDirty} />
-            <LegalComplianceCard onFieldChange={markDirty} />
+            <CompanyDetailsCard
+              onFieldChange={markDirty}
+              defaultValues={{
+                companyName: supplier.companyName,
+                tradingName: supplier.tradingName,
+              }}
+            />
+            <ContactPersonCard
+              onFieldChange={markDirty}
+              defaultValues={supplier.contact}
+            />
+            <BusinessAddressCard
+              onFieldChange={markDirty}
+              defaultValues={supplier.address}
+            />
+            <LegalComplianceCard
+              onFieldChange={markDirty}
+              defaultValues={supplier.legal}
+            />
           </>
         }
         right={
           <>
-            <SupplierStatusCard onFieldChange={markDirty} />
-            <CommunicationCard onFieldChange={markDirty} />
+            <SupplierStatusCard
+              onFieldChange={markDirty}
+              defaultValue={supplier.status}
+            />
+            <CommunicationCard
+              onFieldChange={markDirty}
+              defaultValues={supplier.communication}
+            />
           </>
         }
       />
