@@ -26,6 +26,7 @@ import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as AuthSuppliersNewRouteImport } from './routes/_auth/suppliers/new'
 import { Route as AuthSuppliersSupplierIdRouteImport } from './routes/_auth/suppliers/$supplierId'
 import { Route as AuthProductsNewRouteImport } from './routes/_auth/products/new'
+import { Route as AuthProductsProductIdRouteImport } from './routes/_auth/products/$productId'
 import { Route as AuthOrdersOrderIdRouteImport } from './routes/_auth/orders/$orderId'
 import { Route as AuthCustomersCustomerIdRouteImport } from './routes/_auth/customers/$customerId'
 
@@ -112,6 +113,11 @@ const AuthProductsNewRoute = AuthProductsNewRouteImport.update({
   path: '/products/new',
   getParentRoute: () => AuthRouteRoute,
 } as any)
+const AuthProductsProductIdRoute = AuthProductsProductIdRouteImport.update({
+  id: '/products/$productId',
+  path: '/products/$productId',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
 const AuthOrdersOrderIdRoute = AuthOrdersOrderIdRouteImport.update({
   id: '/orders/$orderId',
   path: '/orders/$orderId',
@@ -132,6 +138,7 @@ export interface FileRoutesByFullPath {
   '/signup': typeof GuestSignupRoute
   '/customers/$customerId': typeof AuthCustomersCustomerIdRoute
   '/orders/$orderId': typeof AuthOrdersOrderIdRoute
+  '/products/$productId': typeof AuthProductsProductIdRoute
   '/products/new': typeof AuthProductsNewRoute
   '/suppliers/$supplierId': typeof AuthSuppliersSupplierIdRoute
   '/suppliers/new': typeof AuthSuppliersNewRoute
@@ -150,6 +157,7 @@ export interface FileRoutesByTo {
   '/signup': typeof GuestSignupRoute
   '/customers/$customerId': typeof AuthCustomersCustomerIdRoute
   '/orders/$orderId': typeof AuthOrdersOrderIdRoute
+  '/products/$productId': typeof AuthProductsProductIdRoute
   '/products/new': typeof AuthProductsNewRoute
   '/suppliers/$supplierId': typeof AuthSuppliersSupplierIdRoute
   '/suppliers/new': typeof AuthSuppliersNewRoute
@@ -172,6 +180,7 @@ export interface FileRoutesById {
   '/_auth/': typeof AuthIndexRoute
   '/_auth/customers/$customerId': typeof AuthCustomersCustomerIdRoute
   '/_auth/orders/$orderId': typeof AuthOrdersOrderIdRoute
+  '/_auth/products/$productId': typeof AuthProductsProductIdRoute
   '/_auth/products/new': typeof AuthProductsNewRoute
   '/_auth/suppliers/$supplierId': typeof AuthSuppliersSupplierIdRoute
   '/_auth/suppliers/new': typeof AuthSuppliersNewRoute
@@ -193,6 +202,7 @@ export interface FileRouteTypes {
     | '/signup'
     | '/customers/$customerId'
     | '/orders/$orderId'
+    | '/products/$productId'
     | '/products/new'
     | '/suppliers/$supplierId'
     | '/suppliers/new'
@@ -211,6 +221,7 @@ export interface FileRouteTypes {
     | '/signup'
     | '/customers/$customerId'
     | '/orders/$orderId'
+    | '/products/$productId'
     | '/products/new'
     | '/suppliers/$supplierId'
     | '/suppliers/new'
@@ -232,6 +243,7 @@ export interface FileRouteTypes {
     | '/_auth/'
     | '/_auth/customers/$customerId'
     | '/_auth/orders/$orderId'
+    | '/_auth/products/$productId'
     | '/_auth/products/new'
     | '/_auth/suppliers/$supplierId'
     | '/_auth/suppliers/new'
@@ -370,6 +382,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthProductsNewRouteImport
       parentRoute: typeof AuthRouteRoute
     }
+    '/_auth/products/$productId': {
+      id: '/_auth/products/$productId'
+      path: '/products/$productId'
+      fullPath: '/products/$productId'
+      preLoaderRoute: typeof AuthProductsProductIdRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
     '/_auth/orders/$orderId': {
       id: '/_auth/orders/$orderId'
       path: '/orders/$orderId'
@@ -409,6 +428,7 @@ interface AuthRouteRouteChildren {
   AuthIndexRoute: typeof AuthIndexRoute
   AuthCustomersCustomerIdRoute: typeof AuthCustomersCustomerIdRoute
   AuthOrdersOrderIdRoute: typeof AuthOrdersOrderIdRoute
+  AuthProductsProductIdRoute: typeof AuthProductsProductIdRoute
   AuthProductsNewRoute: typeof AuthProductsNewRoute
   AuthAnalyticsIndexRoute: typeof AuthAnalyticsIndexRoute
   AuthCustomersIndexRoute: typeof AuthCustomersIndexRoute
@@ -423,6 +443,7 @@ const AuthRouteRouteChildren: AuthRouteRouteChildren = {
   AuthIndexRoute: AuthIndexRoute,
   AuthCustomersCustomerIdRoute: AuthCustomersCustomerIdRoute,
   AuthOrdersOrderIdRoute: AuthOrdersOrderIdRoute,
+  AuthProductsProductIdRoute: AuthProductsProductIdRoute,
   AuthProductsNewRoute: AuthProductsNewRoute,
   AuthAnalyticsIndexRoute: AuthAnalyticsIndexRoute,
   AuthCustomersIndexRoute: AuthCustomersIndexRoute,

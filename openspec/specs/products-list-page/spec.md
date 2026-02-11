@@ -7,9 +7,26 @@ Mock data covers Active, Unlisted, and Draft statuses.
 ### Requirement: Product table columns
 The products data table reflects the SAKEwinkel product model.
 
+Clicking a product row SHALL navigate to `/products/$productId` where `$productId` is the product's `id`.
+
 #### Scenario: Table columns
 - **WHEN** the products list page renders the data table
 - **THEN** columns are: Thumbnail + Product Name, Type (Physical/Voucher/Clickthrough badge), Status (Draft/Unlisted/Active badge), Original Price, Sale Price, Stock, Supplier, Actions
+
+#### Scenario: Row click navigates to detail page
+- **WHEN** user clicks on a product row in the data table
+- **THEN** the browser navigates to `/products/$productId` for that product's ID
+
+#### Scenario: Checkbox click does not navigate
+- **WHEN** user clicks the checkbox column of a product row
+- **THEN** the row selection toggles without navigating away from the listing page
+
+### Requirement: Add product button navigates to creation form
+The "Add product" primary button SHALL be wrapped in a `Link` component that navigates to `/products/new`.
+
+#### Scenario: Add product navigation
+- **WHEN** user clicks the "Add product" button on the products listing page
+- **THEN** the browser navigates to `/products/new`
 
 ### Requirement: Product mock data
 The products.json file contains representative SAKEwinkel products.

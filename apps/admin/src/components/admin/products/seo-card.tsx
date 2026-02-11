@@ -7,9 +7,13 @@ import { FieldLabel } from "./field-label";
 
 interface SeoCardProps {
   readonly onFieldChange: () => void;
+  readonly defaultValues?: {
+    seoTitle?: string;
+    seoDescription?: string;
+  };
 }
 
-export function SeoCard({ onFieldChange }: SeoCardProps) {
+export function SeoCard({ onFieldChange, defaultValues }: SeoCardProps) {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -30,13 +34,14 @@ export function SeoCard({ onFieldChange }: SeoCardProps) {
           <div className="flex flex-col gap-3">
             <div>
               <FieldLabel>Page title</FieldLabel>
-              <AdminInput placeholder="Product title" onChange={onFieldChange} />
+              <AdminInput placeholder="Product title" defaultValue={defaultValues?.seoTitle} onChange={onFieldChange} />
             </div>
             <div>
               <FieldLabel>Meta description</FieldLabel>
               <textarea
                 className="w-full min-h-[80px] rounded-[8px] border border-border-input bg-bg-input text-[13px] text-text-primary px-3 py-1.5 outline-none resize-y focus:border-border-input-focus focus:ring-2 focus:ring-border-focus-ring placeholder:text-text-subdued"
                 placeholder="Description"
+                defaultValue={defaultValues?.seoDescription}
                 onChange={onFieldChange}
               />
             </div>

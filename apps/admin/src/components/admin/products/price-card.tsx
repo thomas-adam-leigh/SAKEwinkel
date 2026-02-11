@@ -8,9 +8,13 @@ import { ExpandableOptionButton } from "./expandable-option-button";
 
 interface PriceCardProps {
   readonly onFieldChange: () => void;
+  readonly defaultValues?: {
+    originalPrice?: number;
+    salePrice?: number;
+  };
 }
 
-export function PriceCard({ onFieldChange }: PriceCardProps) {
+export function PriceCard({ onFieldChange, defaultValues }: PriceCardProps) {
   const [showChargeTax, setShowChargeTax] = useState(false);
   const [chargeTax, setChargeTax] = useState(true);
   const [showCostPerItem, setShowCostPerItem] = useState(false);
@@ -22,11 +26,11 @@ export function PriceCard({ onFieldChange }: PriceCardProps) {
       </div>
       <div className="p-4">
         <FieldLabel>Original price</FieldLabel>
-        <PriceInput placeholder="0.00" onChange={onFieldChange} />
+        <PriceInput placeholder="0.00" defaultValue={defaultValues?.originalPrice} onChange={onFieldChange} />
 
         <div className="mt-3">
           <FieldLabel>Sale price</FieldLabel>
-          <PriceInput placeholder="0.00" onChange={onFieldChange} />
+          <PriceInput placeholder="0.00" defaultValue={defaultValues?.salePrice ?? undefined} onChange={onFieldChange} />
         </div>
 
         {/* Expanded fields */}

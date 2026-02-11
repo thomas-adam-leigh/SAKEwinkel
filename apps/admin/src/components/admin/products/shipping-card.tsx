@@ -10,11 +10,17 @@ import { ExpandableOptionButton } from "./expandable-option-button";
 
 interface ShippingCardProps {
   readonly onFieldChange: () => void;
+  readonly defaultValues?: {
+    deliveryCost?: number;
+    weight?: number;
+    packageType?: string;
+    countryOfOrigin?: string;
+  };
 }
 
-export function ShippingCard({ onFieldChange }: ShippingCardProps) {
+export function ShippingCard({ onFieldChange, defaultValues }: ShippingCardProps) {
   const [isPhysical, setIsPhysical] = useState(true);
-  const [showCountryOfOrigin, setShowCountryOfOrigin] = useState(false);
+  const [showCountryOfOrigin, setShowCountryOfOrigin] = useState(!!defaultValues?.countryOfOrigin);
   const [showHsCode, setShowHsCode] = useState(false);
 
   return (
@@ -49,6 +55,7 @@ export function ShippingCard({ onFieldChange }: ShippingCardProps) {
                   <AdminInput
                     type="number"
                     placeholder="0.0"
+                    defaultValue={defaultValues?.weight}
                     onChange={onFieldChange}
                   />
                 </div>

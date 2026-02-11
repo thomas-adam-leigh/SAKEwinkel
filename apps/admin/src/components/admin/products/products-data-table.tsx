@@ -1,3 +1,4 @@
+import { useNavigate } from "@tanstack/react-router";
 import { ProductStatusBadge } from "./status-badge";
 import type { Product } from "@/types/product";
 import type { Supplier } from "@/types/supplier";
@@ -25,6 +26,7 @@ export function ProductsDataTable({
   selectedIds,
   onSelectionChange,
 }: ProductsDataTableProps) {
+  const navigate = useNavigate();
   const allSelected =
     products.length > 0 && selectedIds.size === products.length;
 
@@ -99,6 +101,7 @@ export function ProductsDataTable({
             <tr
               key={product.id}
               className="group h-[52px] cursor-pointer border-b border-border-separator transition-colors hover:bg-bg-surface-hover"
+              onClick={() => navigate({ to: "/products/$productId", params: { productId: product.id } })}
             >
               <td
                 className="w-[48px] text-center"

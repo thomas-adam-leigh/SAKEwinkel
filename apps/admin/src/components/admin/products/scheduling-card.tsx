@@ -5,9 +5,13 @@ import { FieldLabel } from "./field-label";
 
 interface SchedulingCardProps {
   readonly onFieldChange: () => void;
+  readonly defaultValues?: {
+    productStart?: string;
+    productEnd?: string;
+  };
 }
 
-export function SchedulingCard({ onFieldChange }: SchedulingCardProps) {
+export function SchedulingCard({ onFieldChange, defaultValues }: SchedulingCardProps) {
   return (
     <AdminCard>
       <div className="p-4 pb-0">
@@ -17,11 +21,11 @@ export function SchedulingCard({ onFieldChange }: SchedulingCardProps) {
         <div className="flex flex-col gap-3">
           <div>
             <FieldLabel>Start date</FieldLabel>
-            <AdminInput type="date" onChange={onFieldChange} />
+            <AdminInput type="date" defaultValue={defaultValues?.productStart} onChange={onFieldChange} />
           </div>
           <div>
             <FieldLabel>End date</FieldLabel>
-            <AdminInput type="date" onChange={onFieldChange} />
+            <AdminInput type="date" defaultValue={defaultValues?.productEnd ?? undefined} onChange={onFieldChange} />
           </div>
         </div>
       </div>

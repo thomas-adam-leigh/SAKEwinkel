@@ -14,13 +14,30 @@ interface VariantRow {
   variation: string;
 }
 
-interface VariantsCardProps {
-  readonly onFieldChange: () => void;
+interface VariantDefault {
+  readonly id: string;
+  readonly name: string;
+  readonly variation: string;
+  readonly originalPrice?: number;
+  readonly salePrice?: number | null;
+  readonly qtyInStock?: number;
+  readonly maxPerOrder?: number;
+  readonly commissionValue?: number;
 }
 
-export function VariantsCard({ onFieldChange }: VariantsCardProps) {
-  const [showVariants, setShowVariants] = useState(false);
-  const [variants, setVariants] = useState<VariantRow[]>([]);
+interface VariantsCardProps {
+  readonly onFieldChange: () => void;
+  readonly defaultValues?: readonly VariantDefault[];
+}
+
+export function VariantsCard({ onFieldChange, defaultValues }: VariantsCardProps) {
+  const hasDefaults = defaultValues && defaultValues.length > 0;
+  const [showVariants, setShowVariants] = useState(!!hasDefaults);
+  const [variants, setVariants] = useState<VariantRow[]>(
+    hasDefaults
+      ? defaultValues.map((v) => ({ id: v.id, name: v.name, variation: v.variation }))
+      : [],
+  );
 
   function addVariant() {
     setVariants((prev) => [
@@ -71,35 +88,35 @@ export function VariantsCard({ onFieldChange }: VariantsCardProps) {
                 <div className="grid grid-cols-2 gap-2 mb-2">
                   <div>
                     <FieldLabel>Variant name</FieldLabel>
-                    <AdminInput placeholder="e.g. Signed by Kobus" onChange={onFieldChange} />
+                    <AdminInput placeholder="e.g. Signed by Kobus" defaultValue={defaultValues?.[i]?.name} onChange={onFieldChange} />
                   </div>
                   <div>
                     <FieldLabel>Variation label</FieldLabel>
-                    <AdminInput placeholder="e.g. Signer" onChange={onFieldChange} />
+                    <AdminInput placeholder="e.g. Signer" defaultValue={defaultValues?.[i]?.variation} onChange={onFieldChange} />
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-2 mb-2">
                   <div>
                     <FieldLabel>Original price</FieldLabel>
-                    <PriceInput placeholder="0.00" onChange={onFieldChange} />
+                    <PriceInput placeholder="0.00" defaultValue={defaultValues?.[i]?.originalPrice} onChange={onFieldChange} />
                   </div>
                   <div>
                     <FieldLabel>Sale price</FieldLabel>
-                    <PriceInput placeholder="0.00" onChange={onFieldChange} />
+                    <PriceInput placeholder="0.00" defaultValue={defaultValues?.[i]?.salePrice ?? undefined} onChange={onFieldChange} />
                   </div>
                 </div>
                 <div className="grid grid-cols-3 gap-2 mb-2">
                   <div>
                     <FieldLabel>Stock qty</FieldLabel>
-                    <AdminInput type="number" placeholder="0" min="0" onChange={onFieldChange} />
+                    <AdminInput type="number" placeholder="0" min="0" defaultValue={defaultValues?.[i]?.qtyInStock} onChange={onFieldChange} />
                   </div>
                   <div>
                     <FieldLabel>Max per order</FieldLabel>
-                    <AdminInput type="number" placeholder="No limit" min="1" onChange={onFieldChange} />
+                    <AdminInput type="number" placeholder="No limit" min="1" defaultValue={defaultValues?.[i]?.maxPerOrder} onChange={onFieldChange} />
                   </div>
                   <div>
                     <FieldLabel>Commission</FieldLabel>
-                    <PriceInput placeholder="0.00" onChange={onFieldChange} />
+                    <PriceInput placeholder="0.00" defaultValue={defaultValues?.[i]?.commissionValue} onChange={onFieldChange} />
                   </div>
                 </div>
                 <div>

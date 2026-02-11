@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronDown } from "lucide-react";
 import { AdminButton } from "@/components/admin/button";
 import { AdminCard } from "@/components/admin/card";
@@ -77,7 +77,9 @@ function ProductsPage() {
             More actions
             <ChevronDown className="ml-1 size-3.5" />
           </AdminButton>
-          <AdminButton variant="primary">Add product</AdminButton>
+          <Link to="/products/new">
+            <AdminButton variant="primary">Add product</AdminButton>
+          </Link>
         </div>
       </div>
 

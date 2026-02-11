@@ -45,11 +45,21 @@ The app SHALL define routes for detail and create pages.
 | Page | Route | H1 Title |
 |---|---|---|
 | Create new product | `/products/new` | Add product |
+| Edit product | `/products/$productId` | Product name |
 | Create new supplier | `/suppliers/new` | Add supplier |
+| Edit supplier | `/suppliers/$supplierId` | Supplier trading name |
 
 #### Scenario: New product route
 - **WHEN** the user navigates to `/products/new`
 - **THEN** the main content area displays the Add product page
+
+#### Scenario: Product detail route resolves
+- **WHEN** an authenticated user navigates to `/products/prod-001`
+- **THEN** the system renders the product detail page for that product ID
+
+#### Scenario: Product detail route with invalid ID
+- **WHEN** an authenticated user navigates to `/products/nonexistent`
+- **THEN** the system renders a "Product not found" message
 
 #### Scenario: New supplier route
 - **WHEN** the user navigates to `/suppliers/new`

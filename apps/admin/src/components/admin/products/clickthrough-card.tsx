@@ -6,9 +6,13 @@ import { HelperText } from "./helper-text";
 
 interface ClickthroughCardProps {
   readonly onFieldChange: () => void;
+  readonly defaultValues?: {
+    clickThroughUrl?: string;
+    ctaButtonText?: string;
+  };
 }
 
-export function ClickthroughCard({ onFieldChange }: ClickthroughCardProps) {
+export function ClickthroughCard({ onFieldChange, defaultValues }: ClickthroughCardProps) {
   return (
     <AdminCard>
       <div className="p-4 pb-0">
@@ -21,6 +25,7 @@ export function ClickthroughCard({ onFieldChange }: ClickthroughCardProps) {
             <AdminInput
               type="url"
               placeholder="https://supplier-store.co.za"
+              defaultValue={defaultValues?.clickThroughUrl}
               onChange={onFieldChange}
             />
             <HelperText>Customer will be redirected to this URL</HelperText>
@@ -29,6 +34,7 @@ export function ClickthroughCard({ onFieldChange }: ClickthroughCardProps) {
             <FieldLabel>CTA button text</FieldLabel>
             <AdminInput
               placeholder="Shop Now"
+              defaultValue={defaultValues?.ctaButtonText}
               onChange={onFieldChange}
             />
             <HelperText>Text displayed on the product page button</HelperText>

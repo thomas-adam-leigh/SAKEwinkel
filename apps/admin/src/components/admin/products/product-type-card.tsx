@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Package, Ticket, ExternalLink } from "lucide-react";
 import { AdminCard } from "../card";
 import { CardSectionHeading } from "./card-section-heading";

@@ -1,12 +1,14 @@
 import { AdminCard } from "../card";
 import { CardSectionHeading } from "./card-section-heading";
 import { AdminSelect } from "./admin-select";
+import type { ProductStatus } from "@/types/product";
 
 interface StatusCardProps {
   readonly onFieldChange: () => void;
+  readonly defaultValue?: ProductStatus;
 }
 
-export function StatusCard({ onFieldChange }: StatusCardProps) {
+export function StatusCard({ onFieldChange, defaultValue }: StatusCardProps) {
   return (
     <AdminCard>
       <div className="p-4 pb-0">
@@ -19,7 +21,7 @@ export function StatusCard({ onFieldChange }: StatusCardProps) {
             { value: "unlisted", label: "Unlisted" },
             { value: "active", label: "Active" },
           ]}
-          defaultValue="draft"
+          defaultValue={defaultValue?.toLowerCase() ?? "draft"}
           onChange={onFieldChange}
         />
       </div>

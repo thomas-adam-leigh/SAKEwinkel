@@ -147,3 +147,54 @@ The product organization card SHALL display an H2 heading "Product organization"
 #### Scenario: Product organization card renders with four combobox fields
 - **WHEN** the product organization card is rendered
 - **THEN** four labeled combobox fields (Type, Vendor, Collections, Tags) are displayed vertically
+
+### Requirement: Form cards accept defaultValues for edit mode
+All form cards SHALL accept an optional `defaultValues` (or `defaultValue` for single-value cards) prop to support pre-filling fields in edit/detail mode. When no default values are provided, fields render empty with their placeholder text.
+
+#### Scenario: TitleDescriptionCard edit mode
+- **WHEN** TitleDescriptionCard receives `defaultValues` with `name: "Jana Bag"` and `description: "<p>Handcrafted leather bag</p>"`
+- **THEN** the title input displays "Jana Bag" and the description editor displays the HTML content
+
+#### Scenario: ProductTypeCard edit mode
+- **WHEN** ProductTypeCard receives `defaultValue: "Voucher"`
+- **THEN** the "Voucher" option is pre-selected
+
+#### Scenario: PriceCard edit mode
+- **WHEN** PriceCard receives `defaultValues` with `originalPrice: 1000` and `salePrice: 599`
+- **THEN** the original price input shows "1000" and the sale price input shows "599"
+
+#### Scenario: CommissionCard edit mode
+- **WHEN** CommissionCard receives `defaultValues` with `commissionValue: 120`
+- **THEN** the commission input shows "120"
+
+#### Scenario: InventoryCard edit mode
+- **WHEN** InventoryCard receives `defaultValues` with `maxPerOrder: 5`
+- **THEN** the max per order input shows "5"
+
+#### Scenario: ShippingCard edit mode
+- **WHEN** ShippingCard receives `defaultValues` with `weight: 1.2`, `packageType: "Parcel"`, `countryOfOrigin: "South Africa"`
+- **THEN** the weight input shows "1.2", package type shows "Parcel", and country shows "South Africa"
+
+#### Scenario: VoucherDetailsCard edit mode
+- **WHEN** VoucherDetailsCard receives `defaultValues` with voucher fields populated
+- **THEN** each field renders with its corresponding value
+
+#### Scenario: ClickthroughCard edit mode
+- **WHEN** ClickthroughCard receives `defaultValues` with `clickThroughUrl: "https://example.com"` and `ctaButtonText: "Shop Now"`
+- **THEN** the URL input shows "https://example.com" and the CTA input shows "Shop Now"
+
+#### Scenario: StatusCard edit mode
+- **WHEN** StatusCard receives `defaultValue: "Active"`
+- **THEN** the status dropdown shows "Active" selected
+
+#### Scenario: SchedulingCard edit mode
+- **WHEN** SchedulingCard receives `defaultValues` with `productStart: "2025-04-10"` and `productEnd: "2025-12-31"`
+- **THEN** the start date picker shows "2025-04-10" and the end date picker shows "2025-12-31"
+
+#### Scenario: VariantsCard edit mode
+- **WHEN** VariantsCard receives `defaultValues` with 2 variant objects
+- **THEN** the variants toggle is on and the table shows 2 pre-populated variant rows
+
+#### Scenario: SeoCard edit mode
+- **WHEN** SeoCard receives `defaultValues` with SEO title and description
+- **THEN** the SEO fields render with those values when expanded

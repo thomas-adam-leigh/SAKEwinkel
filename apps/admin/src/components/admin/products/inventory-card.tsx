@@ -10,9 +10,12 @@ import { AdminCheckbox } from "./admin-checkbox";
 
 interface InventoryCardProps {
   readonly onFieldChange: () => void;
+  readonly defaultValues?: {
+    maxPerOrder?: number;
+  };
 }
 
-export function InventoryCard({ onFieldChange }: InventoryCardProps) {
+export function InventoryCard({ onFieldChange, defaultValues }: InventoryCardProps) {
   const [tracked, setTracked] = useState(true);
   const [quantity, setQuantity] = useState(0);
   const [showSku, setShowSku] = useState(false);
@@ -58,7 +61,7 @@ export function InventoryCard({ onFieldChange }: InventoryCardProps) {
             {/* Max per order */}
             <div className="mt-3">
               <FieldLabel>Max per order</FieldLabel>
-              <AdminInput type="number" placeholder="No limit" min="1" onChange={onFieldChange} />
+              <AdminInput type="number" placeholder="No limit" min="1" defaultValue={defaultValues?.maxPerOrder} onChange={onFieldChange} />
             </div>
 
             {/* Expanded fields */}

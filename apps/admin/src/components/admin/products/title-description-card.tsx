@@ -9,9 +9,14 @@ import { CardSectionHeading } from "./card-section-heading";
 
 interface TitleDescriptionCardProps {
   readonly onFieldChange: () => void;
+  readonly defaultValues?: {
+    name?: string;
+    shortOverview?: string;
+    description?: string;
+  };
 }
 
-export function TitleDescriptionCard({ onFieldChange }: TitleDescriptionCardProps) {
+export function TitleDescriptionCard({ onFieldChange, defaultValues }: TitleDescriptionCardProps) {
   return (
     <AdminCard>
       {/* Title */}
@@ -19,6 +24,7 @@ export function TitleDescriptionCard({ onFieldChange }: TitleDescriptionCardProp
         <FieldLabel>Title</FieldLabel>
         <AdminInput
           placeholder="Short sleeve t-shirt"
+          defaultValue={defaultValues?.name}
           onChange={onFieldChange}
         />
       </div>
@@ -33,7 +39,9 @@ export function TitleDescriptionCard({ onFieldChange }: TitleDescriptionCardProp
             contentEditable
             suppressContentEditableWarning
             onInput={onFieldChange}
-          />
+          >
+            {defaultValues?.description}
+          </div>
         </div>
       </div>
 
