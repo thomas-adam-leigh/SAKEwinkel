@@ -1,18 +1,16 @@
 import { Play } from "lucide-react";
-import { AdminCard } from "../admin/card";
-import { AdminButton } from "../admin/button";
+import { AdminButton } from "@/components/admin/button";
+import { AdminCard } from "@/components/admin/card";
 
 export function EducationalCard() {
   return (
     <AdminCard className="p-4">
-      <h2
-        className="text-[16px] text-text-primary mb-2"
-        style={{ fontWeight: 600 }}
-      >
+      <h2 className="mb-2 text-[16px] font-[600] text-text-primary">
         Learn the basics of dropshipping
       </h2>
-      <p className="text-[13px] text-text-secondary mb-3" style={{ fontWeight: 450 }}>
-        Get started with dropshipping by learning the fundamentals of how to find products, set up your store, and market to customers.
+      <p className="mb-3 text-[13px] font-[450] text-text-secondary">
+        Get started with dropshipping by learning the fundamentals of how to
+        find products, set up your store, and market to customers.
       </p>
       <div className="flex items-center gap-3">
         <AdminButton variant="secondary">
@@ -21,8 +19,7 @@ export function EducationalCard() {
         </AdminButton>
         <a
           href="#"
-          className="text-[13px] text-text-primary hover:underline"
-          style={{ fontWeight: 450 }}
+          className="text-[13px] font-[450] text-text-primary hover:underline"
           onClick={(e) => e.preventDefault()}
         >
           Learn more

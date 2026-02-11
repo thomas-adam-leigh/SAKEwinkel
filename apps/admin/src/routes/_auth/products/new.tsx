@@ -1,19 +1,19 @@
 import { useState, useCallback } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { PageHeader } from "../../../components/admin/page-header";
-import { AdminButton } from "../../../components/admin/button";
-import { ContextualSaveBar } from "../../../components/admin/products/contextual-save-bar";
-import { NewProductLayout } from "../../../components/admin/products/new-product-layout";
-import { TitleDescriptionCard } from "../../../components/admin/products/title-description-card";
-import { PriceCard } from "../../../components/admin/products/price-card";
-import { InventoryCard } from "../../../components/admin/products/inventory-card";
-import { ShippingCard } from "../../../components/admin/products/shipping-card";
-import { VariantsCard } from "../../../components/admin/products/variants-card";
-import { SeoCard } from "../../../components/admin/products/seo-card";
-import { StatusCard } from "../../../components/admin/products/status-card";
-import { PublishingCard } from "../../../components/admin/products/publishing-card";
-import { ProductOrganizationCard } from "../../../components/admin/products/product-organization-card";
-import { ThemeTemplateCard } from "../../../components/admin/products/theme-template-card";
+import { AdminButton } from "@/components/admin/button";
+import { PageHeader } from "@/components/admin/page-header";
+import { ContextualSaveBar } from "@/components/admin/products/contextual-save-bar";
+import { NewProductLayout } from "@/components/admin/products/new-product-layout";
+import { TitleDescriptionCard } from "@/components/admin/products/title-description-card";
+import { PriceCard } from "@/components/admin/products/price-card";
+import { InventoryCard } from "@/components/admin/products/inventory-card";
+import { ShippingCard } from "@/components/admin/products/shipping-card";
+import { VariantsCard } from "@/components/admin/products/variants-card";
+import { SeoCard } from "@/components/admin/products/seo-card";
+import { StatusCard } from "@/components/admin/products/status-card";
+import { PublishingCard } from "@/components/admin/products/publishing-card";
+import { ProductOrganizationCard } from "@/components/admin/products/product-organization-card";
+import { ThemeTemplateCard } from "@/components/admin/products/theme-template-card";
 
 export const Route = createFileRoute("/_auth/products/new")({
   component: NewProductPage,
@@ -65,14 +65,8 @@ function NewProductPage() {
         }
       />
 
-      {/* Bottom save button */}
-      <div className="max-w-[998px] mt-4 pb-8">
-        <AdminButton
-          variant="primary"
-          disabled={!isDirty}
-          onClick={handleSave}
-          className={!isDirty ? "opacity-50 cursor-not-allowed" : ""}
-        >
+      <div className="mt-4 max-w-[998px] pb-8">
+        <AdminButton variant="primary" disabled={!isDirty} onClick={handleSave}>
           Save
         </AdminButton>
       </div>

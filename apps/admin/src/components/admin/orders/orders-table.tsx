@@ -1,118 +1,195 @@
-import { useState } from "react";
-import type { Order } from "@/data/orders";
-import { StatusBadge } from "./status-badge";
+import { useNavigate } from "@tanstack/react-router";
+import { ArrowDown, ArrowUp } from "lucide-react";
+import { StatusBadge, type StatusTone } from "@/components/admin/status-badge";
+import type { FulfillmentStatus, Order, PaymentStatus } from "@/data/orders";
+
+export type SortField =
+  | "orderNumber"
+  | "date"
+  | "customer"
+  | "total"
+  | "paymentStatus"
+  | "fulfillmentStatus";
+
+export type SortDirection = "asc" | "desc";
 
 interface OrdersTableProps {
   readonly orders: Order[];
+  readonly selectedIds: Set<string>;
+  readonly onSelectionChange: (ids: Set<string>) => void;
+  readonly sortField: SortField | null;
+  readonly sortDirection: SortDirection;
+  readonly onSort: (field: SortField) => void;
 }
 
-export function OrdersTable({ orders }: OrdersTableProps) {
-  const [selectedIds, setSelectedIds] = useState<Set<string>>(() => new Set());
+interface ColumnDef {
+  readonly key: SortField;
+  readonly label: string;
+}
+
+const paymentTone: Record<PaymentStatus, StatusTone> = {
+  Paid: "success",
+  Pending: "warning",
+  "Partially paid": "warning",
+  Refunded: "subdued",
+};
+
+const fulfillmentTone: Record<FulfillmentStatus, StatusTone> = {
+  Fulfilled: "success",
+  Unfulfilled: "warning",
+};
+
+const columns: ColumnDef[] = [
+  { key: "orderNumber", label: "Order" },
+  { key: "date", label: "Date" },
+  { key: "customer", label: "Customer" },
+  { key: "total", label: "Total" },
+  { key: "paymentStatus", label: "Payment status" },
+  { key: "fulfillmentStatus", label: "Fulfillment status" },
+];
+
+export function OrdersTable({
+  orders,
+  selectedIds,
+  onSelectionChange,
+  sortField,
+  sortDirection,
+  onSort,
+}: OrdersTableProps) {
+  const navigate = useNavigate();
 
   const allSelected = orders.length > 0 && selectedIds.size === orders.length;
+  const someSelected = selectedIds.size > 0;
 
   function toggleAll() {
     if (allSelected) {
-      setSelectedIds(new Set());
+      onSelectionChange(new Set());
     } else {
-      setSelectedIds(new Set(orders.map((o) => o.id)));
+      onSelectionChange(new Set(orders.map((o) => o.id)));
     }
   }
 
   function toggleRow(id: string) {
-    setSelectedIds((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) {
-        next.delete(id);
-      } else {
-        next.add(id);
-      }
-      return next;
-    });
+    const next = new Set(selectedIds);
+    if (next.has(id)) {
+      next.delete(id);
+    } else {
+      next.add(id);
+    }
+    onSelectionChange(next);
   }
 
   return (
-    <table className="w-full border-collapse">
-      <thead>
-        <tr className="bg-bg-surface-secondary border-b border-[#e3e3e3]">
-          <th className="w-[32px] px-4 py-2 text-left">
-            <input
-              type="checkbox"
-              checked={allSelected}
-              onChange={toggleAll}
-              className="accent-bg-primary"
-            />
-          </th>
-          <th
-            className="text-text-secondary px-4 py-2 text-left text-[12px]"
-            style={{ fontWeight: 550 }}
-          >
-            Order
-          </th>
-          <th
-            className="text-text-secondary px-4 py-2 text-left text-[12px]"
-            style={{ fontWeight: 550 }}
-          >
-            Date
-          </th>
-          <th
-            className="text-text-secondary px-4 py-2 text-left text-[12px]"
-            style={{ fontWeight: 550 }}
-          >
-            Customer
-          </th>
-          <th
-            className="text-text-secondary px-4 py-2 text-left text-[12px]"
-            style={{ fontWeight: 550 }}
-          >
-            Total
-          </th>
-          <th
-            className="text-text-secondary px-4 py-2 text-left text-[12px]"
-            style={{ fontWeight: 550 }}
-          >
-            Payment status
-          </th>
-          <th
-            className="text-text-secondary px-4 py-2 text-left text-[12px]"
-            style={{ fontWeight: 550 }}
-          >
-            Fulfillment status
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {orders.map((order) => (
-          <tr
-            key={order.id}
-            className="hover:bg-bg-surface-hover border-b border-[#f1f1f1] transition-colors"
-          >
-            <td className="w-[32px] px-4 py-3">
+    <div className="relative">
+      {/* Bulk action bar */}
+      {someSelected && (
+        <div className="sticky top-0 z-10 flex items-center gap-3 border-b border-border-subdued bg-bg-surface px-4 py-2">
+          <span className="text-[13px] font-[550] text-text-primary">
+            {selectedIds.size} selected
+          </span>
+          <div className="flex items-center gap-1">
+            <button
+              type="button"
+              className="rounded-[8px] px-3 py-1 text-[12px] font-[450] text-text-primary transition-colors hover:bg-bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus-ring"
+            >
+              Fulfill orders
+            </button>
+            <button
+              type="button"
+              className="rounded-[8px] px-3 py-1 text-[12px] font-[450] text-text-primary transition-colors hover:bg-bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus-ring"
+            >
+              Capture payments
+            </button>
+            <button
+              type="button"
+              className="rounded-[8px] px-3 py-1 text-[12px] font-[450] text-text-secondary transition-colors hover:bg-bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus-ring"
+            >
+              More actions
+            </button>
+          </div>
+        </div>
+      )}
+
+      <table className="w-full border-collapse">
+        <thead>
+          <tr className="border-b border-border-subdued bg-bg-surface-secondary">
+            <th className="w-[32px] px-4 py-2 text-left">
               <input
                 type="checkbox"
-                checked={selectedIds.has(order.id)}
-                onChange={() => toggleRow(order.id)}
-                className="accent-bg-primary"
+                checked={allSelected}
+                onChange={toggleAll}
+                className="accent-bg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus-ring"
               />
-            </td>
-            <td
-              className="text-text-primary px-4 py-3 text-[13px]"
-              style={{ fontWeight: 550 }}
-            >
-              {order.orderNumber}
-            </td>
-            <td className="text-text-primary px-4 py-3 text-[13px]">{order.date}</td>
-            <td className="text-text-primary px-4 py-3 text-[13px]">{order.customer}</td>
-            <td className="text-text-primary px-4 py-3 text-[13px]">{order.total}</td>
-            <td className="px-4 py-3">
-              <StatusBadge variant="payment" status={order.paymentStatus} />
-            </td>
-            <td className="px-4 py-3">
-              <StatusBadge variant="fulfillment" status={order.fulfillmentStatus} />
-            </td>
+            </th>
+            {columns.map((col) => {
+              const isActive = sortField === col.key;
+              return (
+                <th
+                  key={col.key}
+                  className="cursor-pointer select-none px-4 py-2 text-left text-[12px] font-[550] text-text-secondary transition-colors hover:text-text-primary"
+                  onClick={() => onSort(col.key)}
+                >
+                  <span className="inline-flex items-center gap-1">
+                    {col.label}
+                    {isActive ? (
+                      sortDirection === "asc" ? (
+                        <ArrowUp className="size-3" />
+                      ) : (
+                        <ArrowDown className="size-3" />
+                      )
+                    ) : (
+                      <ArrowDown className="size-3 opacity-0 transition-opacity group-hover:opacity-30" />
+                    )}
+                  </span>
+                </th>
+              );
+            })}
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {orders.map((order) => (
+            <tr
+              key={order.id}
+              className="cursor-pointer border-b border-border-separator transition-colors hover:bg-bg-surface-hover"
+              onClick={() => navigate({ to: "/orders/$orderId", params: { orderId: order.id } })}
+            >
+              <td
+                className="w-[32px] px-4 py-3"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <input
+                  type="checkbox"
+                  checked={selectedIds.has(order.id)}
+                  onChange={() => toggleRow(order.id)}
+                  className="accent-bg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus-ring"
+                />
+              </td>
+              <td className="px-4 py-3 text-[13px] font-[550] text-text-primary">
+                {order.orderNumber}
+              </td>
+              <td className="px-4 py-3 text-[13px] text-text-primary">
+                {order.date}
+              </td>
+              <td className="px-4 py-3 text-[13px] text-text-primary">
+                {order.customer}
+              </td>
+              <td className="px-4 py-3 text-[13px] text-text-primary">
+                {order.total}
+              </td>
+              <td className="px-4 py-3">
+                <StatusBadge tone={paymentTone[order.paymentStatus]}>
+                  {order.paymentStatus}
+                </StatusBadge>
+              </td>
+              <td className="px-4 py-3">
+                <StatusBadge tone={fulfillmentTone[order.fulfillmentStatus]}>
+                  {order.fulfillmentStatus}
+                </StatusBadge>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }

@@ -148,6 +148,18 @@
   --color-border-input: #8a8a8a;
   --color-border-input-focus: #303030;
   --color-border-focus-ring: #005bd3;
+  --color-border-subdued: #e3e3e3;
+  --color-border-separator: #f1f1f1;
+
+  /* Status colors */
+  --color-status-success-bg: #d4f3e5;
+  --color-status-success-text: #014b40;
+  --color-status-warning-bg: #ffedb3;
+  --color-status-warning-text: #5e4200;
+  --color-status-neutral-bg: #e3e3e3;
+  --color-status-neutral-text: #4a4a4a;
+  --color-status-subdued-bg: #f1f1f1;
+  --color-status-subdued-text: #616161;
 
   /* Polaris icon colors */
   --color-icon-default: #616161;

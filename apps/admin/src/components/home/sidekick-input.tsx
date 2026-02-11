@@ -1,4 +1,4 @@
-import { Plus, SendHorizontal } from "lucide-react";
+import { Plus } from "lucide-react";
 
 export function SidekickInput() {
   return (
@@ -11,15 +11,14 @@ export function SidekickInput() {
       <div className="flex items-center justify-between px-3 pb-2">
         <button
           type="button"
-          className="flex items-center justify-center w-[28px] h-[28px] rounded-[8px] hover:bg-[rgba(0,0,0,0.05)] transition-colors"
+          className="flex size-[28px] items-center justify-center rounded-[8px] transition-colors hover:bg-bg-nav-hover"
           aria-label="Add files and more"
         >
           <Plus size={16} className="text-icon-default" />
         </button>
         <button
           type="button"
-          className="flex items-center justify-center h-[28px] px-3 rounded-[8px] bg-bg-primary text-text-on-dark text-[13px] shadow-[var(--shadow-polaris-btn-primary)]"
-          style={{ fontWeight: 450 }}
+          className="flex h-[28px] items-center justify-center rounded-[8px] bg-bg-primary px-3 text-[13px] font-[450] text-text-on-dark shadow-[var(--shadow-polaris-btn-primary)]"
         >
           Send
         </button>

@@ -6,19 +6,15 @@ interface ContextualSaveBarProps {
 
 export function ContextualSaveBar({ isDirty, onDiscard, onSave }: ContextualSaveBarProps) {
   return (
-    <div
-      className="sticky top-0 z-10 flex items-center justify-between px-4 h-[44px] rounded-[10px] mb-4"
-      style={{ backgroundColor: "#1a1a1a" }}
-    >
-      <span className="text-[12px] text-[#e3e3e3]" style={{ fontWeight: 450 }}>
+    <div className="sticky top-0 z-10 mb-4 flex h-[44px] items-center justify-between rounded-[10px] bg-bg-primary px-4">
+      <span className="text-[12px] font-[450] text-text-placeholder">
         Unsaved product
       </span>
       <div className="flex items-center gap-2">
         <button
           type="button"
           onClick={onDiscard}
-          className="h-[28px] px-2 rounded-[8px] text-[12px] text-[#e3e3e3] bg-transparent border-none transition-colors hover:bg-[rgba(255,255,255,0.1)]"
-          style={{ fontWeight: 550 }}
+          className="h-[28px] rounded-[8px] border-none bg-transparent px-2 text-[12px] font-[550] text-text-placeholder transition-colors hover:bg-white/10"
         >
           Discard
         </button>
@@ -26,12 +22,11 @@ export function ContextualSaveBar({ isDirty, onDiscard, onSave }: ContextualSave
           type="button"
           onClick={onSave}
           disabled={!isDirty}
-          className="h-[28px] px-2 rounded-[8px] text-[12px] border-none transition-colors"
-          style={{
-            fontWeight: 550,
-            backgroundColor: isDirty ? "#ffffff" : "transparent",
-            color: isDirty ? "#303030" : "#8a8a8a",
-          }}
+          className={`h-[28px] rounded-[8px] border-none px-2 text-[12px] font-[550] transition-colors ${
+            isDirty
+              ? "bg-white text-text-primary"
+              : "bg-transparent text-text-subdued"
+          }`}
         >
           Save
         </button>

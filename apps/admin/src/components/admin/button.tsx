@@ -19,15 +19,19 @@ const variantStyles: Record<ButtonVariant, string> = {
 export function AdminButton({
   variant = "primary",
   className = "",
+  disabled,
   ...props
 }: AdminButtonProps) {
   const isGhost = variant === "ghost";
   return (
     <button
       type="button"
+      disabled={disabled}
       className={`inline-flex items-center justify-center transition-colors ${
         isGhost ? "" : "text-[13px]"
-      } ${variantStyles[variant]} ${className}`}
+      } ${variantStyles[variant]} ${
+        disabled ? "pointer-events-none opacity-50" : ""
+      } ${className}`}
       style={{ fontWeight: isGhost ? 550 : 450 }}
       {...props}
     />

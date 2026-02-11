@@ -1,24 +1,20 @@
-import { AdminCard } from "../admin/card";
+import { AdminCard } from "@/components/admin/card";
 
 export function ShippingRatesCard() {
   return (
     <AdminCard className="p-4">
       <div className="flex items-center justify-between">
         <div>
-          <h3
-            className="text-[13px] text-text-primary mb-1"
-            style={{ fontWeight: 600 }}
-          >
+          <h3 className="mb-1 text-[13px] font-[600] text-text-primary">
             Review your shipping rates
           </h3>
-          <span className="text-[13px] text-text-secondary" style={{ fontWeight: 450 }}>
+          <span className="text-[13px] font-[450] text-text-secondary">
             Domestic
           </span>
         </div>
         <a
           href="#"
-          className="text-[13px] text-text-primary hover:underline shrink-0"
-          style={{ fontWeight: 550 }}
+          className="shrink-0 text-[13px] font-[550] text-text-primary hover:underline"
           onClick={(e) => e.preventDefault()}
         >
           Review
